@@ -6,10 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 // @mui material components
 import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
+import Box from "@mui/material/Box";
+import Typography from '@mui/material/Typography';
 
 // Material Dashboard 2 React components
-import MDBox from "../../components/MDBox";
-import MDTypography from "../../components/MDTypography";
 import MDInput from "../../components/MDInput";
 import MDButton from "../../components/MDButton";
 
@@ -77,9 +77,9 @@ function SignIn() {
   };
 
   return (
-    <BasicLayout image={bgImage}>
+    <BasicLayout>
       <Card>
-        <MDBox
+        <Box
           variant="gradient"
           bgColor="info"
           borderRadius="lg"
@@ -90,14 +90,14 @@ function SignIn() {
           mb={1}
           textAlign="center"
         >
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+          <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
             Sign in
-          </MDTypography>
-        </MDBox>
+          </Typography>
+        </Box>
 
-        <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form" id="login-form">
-            <MDBox mb={2}>
+        <Box pt={4} pb={3} px={3}>
+          <Box component="form" role="form" id="login-form">
+            <Box mb={2}>
               <MDInput
                 type="email"
                 name="email"
@@ -106,9 +106,9 @@ function SignIn() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
+            <Box mb={2}>
               <MDInput
                 type="password"
                 name="password"
@@ -117,23 +117,23 @@ function SignIn() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
 
 
-            <MDBox display="flex" alignItems="right" ml={0.6}>
+            <Box display="flex" alignItems="right" ml={0.6}>
 
               <RadioGroup sx={{ flexDirection: 'row' }} name="type" value={user.type} onChange={handleChange}>
                 <FormControlLabel value="candidate" control={<Radio />} label="Candidate" />
                 <FormControlLabel value="company" control={<Radio />} label="Company" />
               </RadioGroup>
-            </MDBox>
+            </Box>
 
 
 
-            <MDBox display="flex" alignItems="center" ml={-1}>
+            <Box display="flex" alignItems="center" ml={-1}>
               <Switch checked={rememberMe} onChange={handleSetRememberMe} />
-              <MDTypography
+              <Typography
                 variant="button"
                 fontWeight="regular"
                 color="text"
@@ -141,18 +141,18 @@ function SignIn() {
                 sx={{ cursor: "pointer", userSelect: "none", ml: -1 }}
               >
                 &nbsp;&nbsp;Remember me
-              </MDTypography>
-            </MDBox>
+              </Typography>
+            </Box>
 
-            <MDBox mt={4} mb={1}>
+            <Box mt={4} mb={1}>
               <MDButton variant="gradient" color="info" fullWidth onClick={login} >Login</MDButton>
-            </MDBox>
-          </MDBox>
+            </Box>
+          </Box>
 
-          <MDBox mt={3} mb={1} textAlign="center">
-            <MDTypography variant="button" color="text">
+          <Box mt={3} mb={1} textAlign="center">
+            <Typography variant="button" color="text">
               Don&apos;t have an account?{" "}
-              <MDTypography
+              <Typography
                 component={Link}
                 to="/authentication/sign-up"
                 variant="button"
@@ -161,12 +161,12 @@ function SignIn() {
                 textGradient
               >
                 Sign up
-              </MDTypography>
-            </MDTypography>
-          </MDBox>
+              </Typography>
+            </Typography>
+          </Box>
 
-          <MDBox mt={3} mb={1} textAlign="center">
-            <MDTypography
+          <Box mt={3} mb={1} textAlign="center">
+            <Typography
               component={Link}
               to="/authentication/reset-password"
               variant="button"
@@ -175,9 +175,9 @@ function SignIn() {
               textGradient
             >
               Reset Password
-            </MDTypography>
-          </MDBox>
-        </MDBox>
+            </Typography>
+          </Box>
+        </Box>
       </Card>
     </BasicLayout>
   );

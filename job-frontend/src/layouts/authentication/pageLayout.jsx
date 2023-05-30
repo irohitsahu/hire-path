@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 
-// Material Dashboard 2 React components
-import MDBox from "../../components/MDBox";
+import Box from '@mui/material/Box';
 
 // Material Dashboard 2 React context
 import { useMaterialUIController, setLayout } from "../../context/index";
 
-function PageLayout({ background, children }) {
+function PageLayout({ children }) {
   const [, dispatch] = useMaterialUIController();
 
   useEffect(() => {
@@ -14,15 +13,13 @@ function PageLayout({ background, children }) {
   }, []);
 
   return (
-    <MDBox
+    <Box
       width="100vw"
       height="100%"
       minHeight="100vh"
-      bgColor={background}
-      sx={{ overflowX: "hidden" }}
     >
       {children}
-    </MDBox>
+    </Box>
   );
 }
 
