@@ -8,7 +8,7 @@ import MDInput from "../../components/MDInput";
 import MDButton from "../../components/MDButton";
 
 // Authentication layout components
-import BasicLayout from "../../layouts/authentication/basicLayout";
+import BasicLayout from "../page/layout";
 
 // Images
 import bgImage from "../../assets/images/bg-reset-cover.jpeg";
@@ -38,7 +38,12 @@ function ResetPassword() {
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={4}>
-              <MDInput type="email" label="Email" variant="standard" fullWidth />
+              <MDInput
+                type="email"
+                label="Email"
+                variant="standard"
+                fullWidth
+              />
             </MDBox>
             <MDBox mt={6} mb={1}>
               <MDButton variant="gradient" color="info" fullWidth>

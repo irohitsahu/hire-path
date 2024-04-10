@@ -14,17 +14,15 @@ import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../../layouts/authentication/basicLayout";
+import BasicLayout from "../page/layout";
 
 import Axios from "axios";
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import FolderIcon from '@mui/icons-material/Folder';
-import PageviewIcon from '@mui/icons-material/Pageview';
-
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
+import FolderIcon from "@mui/icons-material/Folder";
+import PageviewIcon from "@mui/icons-material/Pageview";
 
 import Cookies from "js-cookie";
-
 
 //Educational Details
 
@@ -50,7 +48,6 @@ function CandidateEdu() {
 
   const save = () => {
     const {
-
       nameOfInstitute,
       nameOfUniversity,
       stream,
@@ -60,8 +57,7 @@ function CandidateEdu() {
       aggregate,
     } = candidate;
 
-
-    const cookieUserid = Cookies.get('Userid')
+    const cookieUserid = Cookies.get("Userid");
     alert(cookieUserid);
     if (cookieUserid) {
       Axios.put(
@@ -69,15 +65,13 @@ function CandidateEdu() {
         candidate
       )
         .then((res) => {
-          console.log(res)
-          alert("Education Saved")
+          console.log(res);
+          alert("Education Saved");
         })
         .catch((err) => console.log(err));
+    } else {
+      alert("Some error occured");
     }
-    else {
-      alert("Some error occured")
-    }
-
   };
 
   return (
@@ -104,10 +98,8 @@ function CandidateEdu() {
             <MDBox mb={2}>
               <MDInput
                 type="text"
-
                 name="nameOfInstitute"
                 value={candidate.nameOfInstitute}
-
                 label="Name of Institute"
                 fullWidth
                 onChange={handleChange}
@@ -117,10 +109,8 @@ function CandidateEdu() {
             <MDBox mb={2}>
               <MDInput
                 type="text"
-
                 name="nameOfUniversity"
                 value={candidate.nameOfUniversity}
-
                 label="Name of University"
                 fullWidth
                 onChange={handleChange}
@@ -130,11 +120,9 @@ function CandidateEdu() {
             <MDBox mb={2}>
               <MDInput
                 type="text"
-
                 name="stream"
                 value={candidate.stream}
                 label="Stream"
-
                 fullWidth
                 onChange={handleChange}
               />

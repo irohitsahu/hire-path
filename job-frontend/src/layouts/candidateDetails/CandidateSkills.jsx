@@ -15,23 +15,19 @@ import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../../layouts/authentication/basicLayout";
+import BasicLayout from "../page/layout";
 
 import Axios from "axios";
-
 
 import Cookies from "js-cookie";
 
 // Skills
 function CandidateSkills() {
-
   const [languages, setLanguages] = useState([]);
   const [programmingLanguages, setProgrammingLanguages] = useState([]);
   const [tools, setTools] = useState([]);
 
-
   const save = () => {
-
     const cookieUserid = Cookies.get("Userid");
     alert(cookieUserid);
     if (cookieUserid) {
@@ -49,7 +45,6 @@ function CandidateSkills() {
     } else {
       alert("Some Error Occured");
     }
-
   };
 
   return (
@@ -81,7 +76,7 @@ function CandidateSkills() {
                 label="Languages"
                 fullWidth
                 onChange={(event) => setLanguages(event.target.value)}
-              //onChange={handleChange}
+                //onChange={handleChange}
               />
             </MDBox>
 
@@ -95,7 +90,7 @@ function CandidateSkills() {
                 onChange={(event) =>
                   setProgrammingLanguages(event.target.value)
                 }
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -107,7 +102,7 @@ function CandidateSkills() {
                 label="Tools"
                 fullWidth
                 onChange={(event) => setTools(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 

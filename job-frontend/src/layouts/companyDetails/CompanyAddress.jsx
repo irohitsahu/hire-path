@@ -15,31 +15,22 @@ import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../../layouts/authentication/basicLayout";
+import BasicLayout from "../page/layout";
 
 import Axios from "axios";
 import Cookies from "js-cookie";
 
-
 // Company Address
 
 function CompanyAddress() {
-
-
-
-
-
   const [establishedYear, setEstablishedYear] = useState();
   const [aboutCompany, setAboutCompany] = useState();
   const [addressLine1, setAddressLine1] = useState();
 
-
   const cookieUserid = Cookies.get("Userid");
   alert(cookieUserid);
 
-
   const save = () => {
-
     if (cookieUserid) {
       Axios.put(
         `http://localhost:7000/api/company/${cookieUserid}/updateaddressbyid/`,
@@ -51,13 +42,9 @@ function CompanyAddress() {
       )
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
+    } else {
+      alert("Some Error Occured");
     }
-    else {
-      alert("Some Error Occured")
-    }
-
-
-
   };
 
   return (
@@ -89,7 +76,7 @@ function CompanyAddress() {
                 label="establishedYear"
                 fullWidth
                 onChange={(event) => setEstablishedYear(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -101,7 +88,7 @@ function CompanyAddress() {
                 label="Pin Code"
                 fullWidth
                 onChange={(event) => setAboutCompany(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -114,7 +101,7 @@ function CompanyAddress() {
                 fullWidth
                 multiline
                 onChange={(event) => setAddressLine1(event.target.value)}
-              //onChange={handleChange}
+                //onChange={handleChange}
               />
             </MDBox>
 

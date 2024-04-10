@@ -25,17 +25,16 @@ import Dashboard from "../layouts/dashboard-components/dashboard/dashboard";
 import Profile from "../layouts/dashboard-components/profile/profile";
 import Tables from "../layouts/dashboard-components/tables/appliedJobTable";
 import ResetPassword from "../layouts/authentication/resetPassword";
-import Homepage from "../layouts/landing-page/homePage";
+import Homepage from "../layouts/page/Home/homePage";
 import Logout from "../layouts/authentication/logout";
 
-
 // @mui icons
-import WorkIcon from '@mui/icons-material/Work';
-import ResetIcon from '@mui/icons-material/RestartAlt';
-import AccountIcon from '@mui/icons-material/AccountBox';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import HomeIcon from '@mui/icons-material/Home';
-import LogoutIcon from '@mui/icons-material/Logout';
+import WorkIcon from "@mui/icons-material/Work";
+import ResetIcon from "@mui/icons-material/RestartAlt";
+import AccountIcon from "@mui/icons-material/AccountBox";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import HomeIcon from "@mui/icons-material/Home";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const routes = [
   {
@@ -85,8 +84,7 @@ const routes = [
     icon: <LogoutIcon color="white" />,
     route: "/home",
     component: <Logout />,
-  }
-
+  },
 ];
 
 export default routes;

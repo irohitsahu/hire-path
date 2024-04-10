@@ -19,7 +19,6 @@ import routes from "./routes/routes";
 // Material Dashboard 2 React contexts
 import { useMaterialUIController } from "./context";
 
-
 import SignIn from "./layouts/authentication/signIn";
 import SignUp from "./layouts/authentication/signUp";
 import CompanyAbout from "./layouts/companyDetails/CompanyAbout";
@@ -30,11 +29,9 @@ import CompanyAddress from "./layouts/companyDetails/CompanyAddress";
 import CompanyHr from "./layouts/companyDetails/CompanyHr";
 import CompanyJobPost from "./layouts/companyDetails/CompanyJobPost";
 
-
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
   const { layout } = controller;
-
 
   const getRoutes = (allRoutes) =>
     allRoutes.map((route) => {
@@ -59,9 +56,9 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {layout === "dashboard" && (
+      {layout === "dashboardd" && (
         <>
-          <Sidenav brandName="Material Dashboard 2" routes={routes} />
+          <Sidenav brandName="Hire Path" routes={routes} />
         </>
       )}
 
@@ -77,7 +74,6 @@ export default function App() {
         <Route path="/company-job-post" element={<CompanyJobPost />} />
         <Route path="/authentication/sign-up" element={<SignUp />} />
         <Route path="/authentication/sign-in" element={<SignIn />} />
-
       </Routes>
     </ThemeProvider>
   );

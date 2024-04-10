@@ -15,13 +15,12 @@ import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../../layouts/authentication/basicLayout";
+import BasicLayout from "../page/layout";
 
 import Axios from "axios";
 import CandidateEdu from "./CandidateEdu";
 import { Navigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-
 
 import Cookies from "js-cookie";
 
@@ -35,7 +34,6 @@ function CandidateBasic() {
     gender: "",
     mobileNo: "",
     bio: "",
-
   });
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -46,7 +44,6 @@ function CandidateBasic() {
   };
 
   const save = () => {
-
     const {
       dateOfBirth,
       programmingdateOfBirth,
@@ -55,11 +52,10 @@ function CandidateBasic() {
       aggregate,
     } = candidate;
 
-    const cookieUserid = Cookies.get('Userid')
+    const cookieUserid = Cookies.get("Userid");
     alert(cookieUserid);
     if (cookieUserid) {
       Axios.put(
-
         `http://localhost:7000/api/candidates/${cookieUserid}/basicdetail/`,
         candidate
       )
@@ -68,12 +64,9 @@ function CandidateBasic() {
           alert("Basic Details Saved");
         })
         .catch((err) => console.log(err));
+    } else {
+      alert("Some Error Occured.");
     }
-    else {
-      alert("Some Error Occured.")
-    }
-
-
   };
 
   return (
@@ -92,7 +85,6 @@ function CandidateBasic() {
         >
           <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
             Fill Candidate Basic Details
-
           </MDTypography>
         </MDBox>
 
@@ -101,11 +93,9 @@ function CandidateBasic() {
             <MDBox mb={2}>
               <MDInput
                 type="text"
-
                 name="dateOfBirth"
                 value={candidate.dateOfBirth}
                 label="DOB (YYYY-MM-DD)"
-
                 fullWidth
                 onChange={handleChange}
               />
@@ -119,7 +109,6 @@ function CandidateBasic() {
                 label="Address"
                 fullWidth
                 multiline
-
                 onChange={handleChange}
               />
             </MDBox>
@@ -127,11 +116,9 @@ function CandidateBasic() {
             <MDBox mb={2}>
               <MDInput
                 type="text"
-
                 name="gender"
                 value={candidate.gender}
                 label="Gender (Male/Female/Others)"
-
                 fullWidth
                 onChange={handleChange}
               />
@@ -151,11 +138,9 @@ function CandidateBasic() {
             <MDBox mb={2}>
               <MDInput
                 type="text"
-
                 name="bio"
                 value={candidate.bio}
                 label="Bio"
-
                 fullWidth
                 onChange={handleChange}
               />

@@ -15,7 +15,7 @@ import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../../layouts/authentication/basicLayout";
+import BasicLayout from "../page/layout";
 
 import Axios from "axios";
 import Cookies from "js-cookie";
@@ -33,26 +33,25 @@ function CompanyJobPost() {
   const [tool, setTool] = useState("");
   const [qualification, setQualification] = useState("");
 
-
   const cookieUserid = Cookies.get("Userid");
   alert(cookieUserid);
 
-
   const save = () => {
-
     if (cookieUserid) {
-      Axios.put(
-        `http://localhost:7000/api/company/${cookieUserid}/newjob/`,
-        {
-          positionName, jobDescription, experienceNeeded, typeOfJob,
-          modeOfJob, responsibilities, programmingLanguages, tool,
-          qualification
-        }
-      )
+      Axios.put(`http://localhost:7000/api/company/${cookieUserid}/newjob/`, {
+        positionName,
+        jobDescription,
+        experienceNeeded,
+        typeOfJob,
+        modeOfJob,
+        responsibilities,
+        programmingLanguages,
+        tool,
+        qualification,
+      })
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
-    }
-    else {
+    } else {
       alert("Some Error Occured");
     }
   };
@@ -86,7 +85,7 @@ function CompanyJobPost() {
                 label="Position"
                 fullWidth
                 onChange={(event) => setPositionName(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -98,7 +97,7 @@ function CompanyJobPost() {
                 label="Job Description"
                 fullWidth
                 onChange={(event) => setJobDescription(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -110,7 +109,7 @@ function CompanyJobPost() {
                 label="Experience Needed"
                 fullWidth
                 onChange={(event) => setExperienceNeeded(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -122,7 +121,7 @@ function CompanyJobPost() {
                 label="Type (Full time / Part time)"
                 fullWidth
                 onChange={(event) => setTypeOfJob(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -134,7 +133,7 @@ function CompanyJobPost() {
                 label="Mode of job"
                 fullWidth
                 onChange={(event) => setModeOfJob(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -146,7 +145,7 @@ function CompanyJobPost() {
                 label="Responsibilities"
                 fullWidth
                 onChange={(event) => setResponsibilities(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -157,8 +156,10 @@ function CompanyJobPost() {
                 value={programmingLanguages}
                 label="Programming Languages"
                 fullWidth
-                onChange={(event) => setProgrammingLanguages(event.target.value)}
-              // onChange={handleChange}
+                onChange={(event) =>
+                  setProgrammingLanguages(event.target.value)
+                }
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -170,7 +171,7 @@ function CompanyJobPost() {
                 label="Programming Languages"
                 fullWidth
                 onChange={(event) => setTool(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -182,7 +183,7 @@ function CompanyJobPost() {
                 label="Qualification"
                 fullWidth
                 onChange={(event) => setQualification(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 

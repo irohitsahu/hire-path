@@ -15,12 +15,11 @@ import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../../layouts/authentication/basicLayout";
+import BasicLayout from "../page/layout";
 
 import Axios from "axios";
 
 import Cookies from "js-cookie";
-
 
 // HR Details
 function CompanyHr() {
@@ -28,13 +27,10 @@ function CompanyHr() {
   const [mobileNo, setMobile] = useState("");
   //   const [aboutCompany, setAboutCompany] = useState();
 
-
   const cookieUserid = Cookies.get("Userid");
   alert(cookieUserid);
 
-
   const save = () => {
-
     if (cookieUserid) {
       Axios.put(
         `http://localhost:7000/api/company/${cookieUserid}/updatehrdetails/`,
@@ -46,11 +42,9 @@ function CompanyHr() {
       )
         .then((res) => console.log(res))
         .catch((err) => console.log(err));
+    } else {
+      alert("Some error occured");
     }
-    else {
-      alert("Some error occured")
-    }
-
   };
 
   return (
@@ -82,7 +76,7 @@ function CompanyHr() {
                 label="HR Email"
                 fullWidth
                 onChange={(event) => setEmail(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -94,7 +88,7 @@ function CompanyHr() {
                 label="Mobile No"
                 fullWidth
                 onChange={(event) => setMobile(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -109,7 +103,6 @@ function CompanyHr() {
               </MDButton>
             </MDBox>
 
-
             <MDBox mt={4} mb={1}>
               <MDButton
                 variant="gradient"
@@ -117,10 +110,8 @@ function CompanyHr() {
                 fullWidth
                 href="/company-job-post"
               >
-
                 post
               </MDButton>
-
             </MDBox>
           </MDBox>
         </MDBox>

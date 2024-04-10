@@ -15,7 +15,7 @@ import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../../layouts/authentication/basicLayout";
+import BasicLayout from "../page/layout";
 
 import Axios from "axios";
 
@@ -27,7 +27,6 @@ function CompanyAbout() {
   const [hrEmail, sethrEmail] = useState();
   const [establishedYear, setEstablishedYear] = useState();
   const [aboutCompany, setAboutCompany] = useState();
-
 
   const cookieUserid = Cookies.get("Userid");
   alert(cookieUserid);
@@ -47,7 +46,6 @@ function CompanyAbout() {
     } else {
       alert("Some Error Occured");
     }
-
   };
 
   return (
@@ -79,7 +77,7 @@ function CompanyAbout() {
                 label="Head Count"
                 fullWidth
                 onChange={(event) => sethrEmail(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -91,7 +89,7 @@ function CompanyAbout() {
                 label="Established Year"
                 fullWidth
                 onChange={(event) => setEstablishedYear(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 
@@ -104,7 +102,7 @@ function CompanyAbout() {
                 fullWidth
                 multiline
                 onChange={(event) => setAboutCompany(event.target.value)}
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </MDBox>
 

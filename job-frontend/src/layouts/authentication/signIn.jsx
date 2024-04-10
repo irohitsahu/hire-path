@@ -7,14 +7,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
 import Box from "@mui/material/Box";
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
 
 // Material Dashboard 2 React components
 import MDInput from "../../components/MDInput";
 import MDButton from "../../components/MDButton";
 
 // Authentication layout components
-import BasicLayout from "./basicLayout";
+import BasicLayout from "../page/layout";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
@@ -54,7 +54,7 @@ function SignIn() {
       )
         .then((res) => {
           console.log(res);
-          SetCookie("userIn", JSON.stringify(response.data))
+          SetCookie("userIn", JSON.stringify(response.data));
           navigate("/dashboard");
         })
         .catch((err) => console.log(err));
@@ -64,12 +64,11 @@ function SignIn() {
           "http://localhost:7000/api/company/login",
           { email, password },
           { withCredentials: true }
-        )
-          .then((response) => {
-            consloe.log(response);
-            SetCookie("userIn", JSON.stringify(response.data))
-            navigate("/dashboard");
-          });
+        ).then((response) => {
+          consloe.log(response);
+          SetCookie("userIn", JSON.stringify(response.data));
+          navigate("/dashboard");
+        });
       } catch (error) {
         console.log(error);
       }
@@ -119,17 +118,25 @@ function SignIn() {
               />
             </Box>
 
-
-
             <Box display="flex" alignItems="right" ml={0.6}>
-
-              <RadioGroup sx={{ flexDirection: 'row' }} name="type" value={user.type} onChange={handleChange}>
-                <FormControlLabel value="candidate" control={<Radio />} label="Candidate" />
-                <FormControlLabel value="company" control={<Radio />} label="Company" />
+              <RadioGroup
+                sx={{ flexDirection: "row" }}
+                name="type"
+                value={user.type}
+                onChange={handleChange}
+              >
+                <FormControlLabel
+                  value="candidate"
+                  control={<Radio />}
+                  label="Candidate"
+                />
+                <FormControlLabel
+                  value="company"
+                  control={<Radio />}
+                  label="Company"
+                />
               </RadioGroup>
             </Box>
-
-
 
             <Box display="flex" alignItems="center" ml={-1}>
               <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -145,7 +152,14 @@ function SignIn() {
             </Box>
 
             <Box mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth onClick={login} >Login</MDButton>
+              <MDButton
+                variant="gradient"
+                color="info"
+                fullWidth
+                onClick={login}
+              >
+                Login
+              </MDButton>
             </Box>
           </Box>
 
