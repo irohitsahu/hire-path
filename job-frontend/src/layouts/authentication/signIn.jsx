@@ -14,7 +14,7 @@ import MDInput from "../../components/MDInput";
 import MDButton from "../../components/MDButton";
 
 // Authentication layout components
-import BasicLayout from "../page/layout";
+import BasicLayout from "../page/Layout/layout";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";

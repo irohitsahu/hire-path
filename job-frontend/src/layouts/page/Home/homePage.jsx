@@ -30,13 +30,7 @@ function LandingPageInfo() {
         <SearchBar>
           <TextField />
         </SearchBar>
-        <Button
-          component={Link}
-          to="/authentication/sign-up"
-          mt={15}
-          mb={3}
-          sx={{ color: ({ palette: { dark } }) => dark.main }}
-        >
+        <Button component={Link} to="/authentication/sign-up" mt={15} mb={3}>
           create account
         </Button>
         <Typography variant="h6" color="white" mt={8} mb={1}>

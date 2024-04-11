@@ -15,7 +15,7 @@ import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../page/layout";
+import BasicLayout from "../page/Layout/layout";
 
 import Axios from "axios";
 import CandidateEdu from "./CandidateEdu";
