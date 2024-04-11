@@ -25,7 +25,7 @@ import Dashboard from "../layouts/dashboard-components/dashboard/dashboard";
 import Profile from "../layouts/dashboard-components/profile/profile";
 import Tables from "../layouts/dashboard-components/tables/appliedJobTable";
 import ResetPassword from "../layouts/authentication/resetPassword";
-import Homepage from "../layouts/page/Home/homePage";
+import Homepage from "../layouts/page/Layout/layout";
 import Logout from "../layouts/authentication/logout";
 
 // @mui icons
