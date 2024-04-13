@@ -25,8 +25,18 @@ import Dashboard from "../layouts/dashboard-components/dashboard/dashboard";
 import Profile from "../layouts/dashboard-components/profile/profile";
 import Tables from "../layouts/dashboard-components/tables/appliedJobTable";
 import ResetPassword from "../layouts/authentication/resetPassword";
-import Homepage from "../layouts/page/Layout/layout";
+import LandingPageInfo from "src/layouts/page/Home/landingInfo";
 import Logout from "../layouts/authentication/logout";
+import LogoutIcon from "@mui/icons-material/Logout";
+import CandidateBasic from "src/layouts/candidateDetails/CandidateBasic";
+import CandidateEdu from "src/layouts/candidateDetails/CandidateEdu";
+import CandidateSkills from "src/layouts/candidateDetails/CandidateSkills";
+import CompanyAbout from "src/layouts/companyDetails/CompanyAbout";
+import CompanyAddress from "src/layouts/companyDetails/CompanyAddress";
+import CompanyHr from "src/layouts/companyDetails/CompanyHr";
+import CompanyJobPost from "src/layouts/companyDetails/CompanyJobPost";
+import SignUp from "src/layouts/authentication/signUp";
+import SignIn from "src/layouts/authentication/SignIn/signIn";
 
 // @mui icons
 import WorkIcon from "@mui/icons-material/Work";
@@ -34,7 +44,6 @@ import ResetIcon from "@mui/icons-material/RestartAlt";
 import AccountIcon from "@mui/icons-material/AccountBox";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HomeIcon from "@mui/icons-material/Home";
-import LogoutIcon from "@mui/icons-material/Logout";
 
 const routes = [
   {
@@ -43,7 +52,7 @@ const routes = [
     key: "home",
     icon: <HomeIcon color="white" />,
     route: "/home",
-    component: <Homepage />,
+    component: <LandingPageInfo />,
   },
   {
     type: "collapse",
@@ -84,6 +93,78 @@ const routes = [
     icon: <LogoutIcon color="white" />,
     route: "/home",
     component: <Logout />,
+  },
+  {
+    type: "collapse",
+    name: "Candidate Basic",
+    key: "candidate-basic",
+    icon: <LogoutIcon color="white" />,
+    route: "/candidate-basic",
+    component: <CandidateBasic />,
+  },
+  {
+    type: "collapse",
+    name: "Education",
+    key: "education",
+    icon: <LogoutIcon color="white" />,
+    route: "/candidate-education",
+    component: <CandidateEdu />,
+  },
+  {
+    type: "collapse",
+    name: "Skills",
+    key: "skills",
+    icon: <LogoutIcon color="white" />,
+    route: "/candidate-skills",
+    component: <CandidateSkills />,
+  },
+  {
+    type: "collapse",
+    name: "About",
+    key: "About",
+    icon: <LogoutIcon color="white" />,
+    route: "/company-about",
+    component: <CompanyAbout />,
+  },
+  {
+    type: "collapse",
+    name: "Address",
+    key: "address",
+    icon: <LogoutIcon color="white" />,
+    route: "/company-address",
+    component: <CompanyAddress />,
+  },
+  {
+    type: "collapse",
+    name: "Human Resource",
+    key: "human-resource",
+    icon: <LogoutIcon color="white" />,
+    route: "/company-hr",
+    component: <CompanyHr />,
+  },
+  {
+    type: "collapse",
+    name: "Job Post",
+    key: "job-post",
+    icon: <LogoutIcon color="white" />,
+    route: "/company-job-post",
+    component: <CompanyJobPost />,
+  },
+  {
+    type: "collapse",
+    name: "Sign Up",
+    key: "sign-up",
+    icon: <LogoutIcon color="white" />,
+    route: "/authentication/sign-up",
+    component: <SignUp />,
+  },
+  {
+    type: "collapse",
+    name: "Sign In",
+    key: "sign-in",
+    icon: <LogoutIcon color="white" />,
+    route: "/authentication/sign-in",
+    component: <SignIn />,
   },
 ];
 
