@@ -1,46 +1,35 @@
-//from material ui code sample
-import * as React from "react";
-
-import { useState } from "react";
+import useInput from "src/hooks/useInput";
 import SearchIcon from "@mui/icons-material/Search";
-import { Search, SearchIconWrapper, StyledInputBase } from "./searchbar-styles";
-import { Box } from "@mui/material";
-
-const SearchResult = ({ text, showResult }) => {
-  return;
-};
+import Fade from "@mui/material/Fade";
+import {
+  Search,
+  SearchIconWrapper,
+  StyledInputBase,
+  SearchResultBox,
+} from "./searchbar-styles";
 
 const SearchBar = () => {
-  const [inputText, setInputText] = useState("");
-  const [isPressed, setIsPressed] = useState(false);
-
-  let inputHandler = (e) => {
-    let lowerCase = e.target.value.toLowerCase();
-    setInputText(lowerCase);
-  };
-
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      setIsPressed(true);
-    }
-  };
+  const [value, isFocused, inputProps] = useInput();
 
   return (
-    <>
-      <Search>
-        <SearchIconWrapper>
-          <SearchIcon />
-        </SearchIconWrapper>
-        <StyledInputBase
-          placeholder="Search Your Dream Job"
-          inputProps={{ "aria-label": "search" }}
-          onChange={inputHandler}
-          onKeyDown={handleKeyDown}
-        />
-      </Search>
-      {}
-      <Box>{inputText}</Box>
-    </>
+    <Search>
+      <SearchIconWrapper>
+        <SearchIcon />
+      </SearchIconWrapper>
+      <StyledInputBase
+        placeholder="Search Your Dream Job"
+        inputProps={{ "aria-label": "search", ...inputProps }}
+      />
+      <Fade in={isFocused && (value ? true : false)} timeout={500}>
+        <SearchResultBox
+          display={"flex"}
+          justifyContent={"start"}
+          alignItems={"center"}
+        >
+          {value}
+        </SearchResultBox>
+      </Fade>
+    </Search>
   );
 };
 

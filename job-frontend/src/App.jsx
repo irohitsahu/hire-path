@@ -56,6 +56,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+
       {layout === "dashboardd" && (
         <>
           <Sidenav brandName="Hire Path" routes={routes} />
