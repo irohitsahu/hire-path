@@ -22,7 +22,12 @@ function Navbar() {
       alignItems={"center"}
       sx={{ color: "primary.main" }}
     >
-      <Box component={Link} to="#" color="inherit" sx={{ cursor: "pointer" }}>
+      <Box
+        component={Link}
+        to="/home"
+        color="inherit"
+        sx={{ cursor: "pointer" }}
+      >
         Job Portal
       </Box>
 

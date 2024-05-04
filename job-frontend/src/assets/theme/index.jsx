@@ -56,7 +56,6 @@ import formLabel from "../../assets/theme/components/form/formLabel";
 import checkbox from "../../assets/theme/components/form/checkbox";
 import radio from "../../assets/theme/components/form/radio";
 import autocomplete from "../../assets/theme/components/form/autocomplete";
-import container from "../../assets/theme/components/container";
 import popover from "../../assets/theme/components/popover";
 import buttonBase from "../../assets/theme/components/buttonBase";
 import icon from "../../assets/theme/components/icon";
@@ -86,7 +85,6 @@ export default createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         ...globals,
-        ...container,
       },
     },
     MuiDrawer: { ...sidenav },

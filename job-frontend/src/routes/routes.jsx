@@ -35,8 +35,8 @@ import CompanyAbout from "src/layouts/companyDetails/CompanyAbout";
 import CompanyAddress from "src/layouts/companyDetails/CompanyAddress";
 import CompanyHr from "src/layouts/companyDetails/CompanyHr";
 import CompanyJobPost from "src/layouts/companyDetails/CompanyJobPost";
-import SignUp from "src/layouts/authentication/signUp";
-import SignIn from "src/layouts/authentication/SignIn/signIn";
+import SignUp from "src/layouts/page/SignUp/signUp";
+import SignIn from "src/layouts/page/SignIn/signIn";
 
 // @mui icons
 import WorkIcon from "@mui/icons-material/Work";

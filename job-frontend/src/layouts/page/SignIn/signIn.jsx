@@ -8,13 +8,21 @@ import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import MuiLink from "@mui/material/Link";
+
+// @mui icons
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import GoogleIcon from "@mui/icons-material/Google";
 
 // Material Dashboard 2 React components
 import InputField from "src/components/InputFeild/inputField";
-import MDButton from "../../../components/MDButton";
+import MDButton from "components/MDButton";
 
-import { Container, FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { TopInfoCard } from "./signIn-styles";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import PageLayout from "layouts/page/LayoutType/pageLayout";
 
 function SignIn() {
   const [rememberMe, setRememberMe] = useState(false);
@@ -22,12 +30,49 @@ function SignIn() {
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
-    <Container maxWidth="xs">
+    <PageLayout>
       <Card>
         <TopInfoCard mx={2} mt={-3} p={2} mb={1} textAlign="center">
           <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
             Sign in
           </Typography>
+          <Grid2
+            container
+            spacing={3}
+            justifyContent="center"
+            sx={{ mt: 1, mb: 2 }}
+          >
+            <Grid2 item xs={2}>
+              <Typography
+                component={MuiLink}
+                href="#"
+                variant="body1"
+                color="white"
+              >
+                <FacebookIcon color="inherit" />
+              </Typography>
+            </Grid2>
+            <Grid2 item xs={2}>
+              <Typography
+                component={MuiLink}
+                href="#"
+                variant="body1"
+                color="white"
+              >
+                <GitHubIcon color="inherit" />
+              </Typography>
+            </Grid2>
+            <Grid2 item xs={2}>
+              <Typography
+                component={MuiLink}
+                href="#"
+                variant="body1"
+                color="white"
+              >
+                <GoogleIcon color="inherit" />
+              </Typography>
+            </Grid2>
+          </Grid2>
         </TopInfoCard>
 
         <Box pt={4} pb={3} px={3}>
@@ -111,7 +156,7 @@ function SignIn() {
           </Box>
         </Box>
       </Card>
-    </Container>
+    </PageLayout>
   );
 }
 

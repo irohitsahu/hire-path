@@ -7,64 +7,16 @@ import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 
 // Material Dashboard 2 React components
-import MDBox from "../../components/MDBox";
-import MDTypography from "../../components/MDTypography";
-import MDInput from "../../components/MDInput";
-import MDButton from "../../components/MDButton";
+import MDBox from "../../../components/MDBox";
+import MDTypography from "../../../components/MDTypography";
+import InputField from "components/InputFeild/inputField";
 
-// Images
-import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../page/Layout/layout";
-import Axios from "axios";
-import { useState } from "react";
 import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import PageLayout from "../LayoutType/pageLayout";
 
 function SignUp() {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    password: "",
-    type: "",
-  });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUser({
-      ...user,
-      [name]: value,
-    });
-  };
-
-  const register = () => {
-    const { name, email, password, type } = user;
-    if (name && email && password && type === "candidate") {
-      Axios.post("http://localhost:7000/api/candidates/signup", {
-        name,
-        email,
-        password,
-      })
-        .then((res) => {
-          console.log(res);
-          alert("Register successful");
-        })
-        .catch((err) => console.log(err));
-    } else if (name && email && password && type === "company") {
-      const companyName = name;
-      Axios.post("http://localhost:7000/api/company/signup", {
-        companyName,
-        email,
-        password,
-      })
-        .then((res) => {
-          console.log(res);
-          alert("Register successful");
-        })
-        .catch((err) => console.log(err));
-    } else alert("Please Fill Form Correclty");
-  };
-
   return (
-    <BasicLayout image={bgImage}>
+    <PageLayout>
       <Card>
         <MDBox
           variant="gradient"
@@ -88,46 +40,35 @@ function SignUp() {
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={2}>
-              <MDInput
+              <InputField
                 type="text"
                 name="name"
-                value={user.name}
                 label="Name"
-                onChange={handleChange}
                 variant="standard"
                 fullWidth
               />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput
+              <InputField
                 type="email"
                 name="email"
-                value={user.email}
                 label="Email"
-                onChange={handleChange}
                 variant="standard"
                 fullWidth
               />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput
+              <InputField
                 type="password"
                 name="password"
-                value={user.password}
                 label="Password"
-                onChange={handleChange}
                 variant="standard"
                 fullWidth
               />
             </MDBox>
 
             <MDBox display="flex" alignItems="right" ml={0.6}>
-              <RadioGroup
-                sx={{ flexDirection: "row" }}
-                name="type"
-                value={user.type}
-                onChange={handleChange}
-              >
+              <RadioGroup sx={{ flexDirection: "row" }} name="type">
                 <FormControlLabel
                   value="candidate"
                   control={<Radio />}
@@ -166,14 +107,9 @@ function SignUp() {
             </MDBox>
 
             <MDBox mt={4} mb={1}>
-              <MDButton
-                variant="gradient"
-                color="info"
-                fullWidth
-                onClick={register}
-              >
+              <Button variant="gradient" color="info" fullWidth>
                 register
-              </MDButton>
+              </Button>
             </MDBox>
 
             <MDBox mt={3} mb={1} textAlign="center">
@@ -194,7 +130,7 @@ function SignUp() {
           </MDBox>
         </MDBox>
       </Card>
-    </BasicLayout>
+    </PageLayout>
   );
 }
 
