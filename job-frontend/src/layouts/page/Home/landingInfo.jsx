@@ -3,10 +3,19 @@ import { Typography, Box, Button } from "@mui/material";
 import SearchBar from "../../../components/searchBar/searchBar";
 
 import { Facebook, GitHub, Instagram, Twitter } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HomeWrapper } from "./landingInfo-styles";
+import { useEffect } from "react";
+import { setLayout, useMaterialUIController } from "context";
 
 function LandingPageInfo() {
+  const [controller, dispatch] = useMaterialUIController();
+  const pathname = useLocation();
+
+  useEffect(() => {
+    setLayout(dispatch, "page");
+  }, [pathname]);
+
   return (
     <HomeWrapper>
       <Typography variant="h2" color="white" textAlign={"center"}>

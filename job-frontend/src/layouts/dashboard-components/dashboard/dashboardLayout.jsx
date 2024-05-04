@@ -10,14 +10,16 @@ import PropTypes from "prop-types";
 import MDBox from "../../../components/MDBox";
 
 // Material Dashboard 2 React context
-import { useMaterialUIController, setLayout } from "../../../context/index";
+import { useMaterialUIController, setLayout } from "context";
 
 function DashboardLayout({ children }) {
   const [controller, dispatch] = useMaterialUIController();
+  const { miniSidenav } = controller;
+  const pathname = useLocation();
 
   useEffect(() => {
     setLayout(dispatch, "dashboard");
-  }, []);
+  }, [pathname]);
 
   return (
     <MDBox
@@ -26,7 +28,11 @@ function DashboardLayout({ children }) {
         position: "relative",
 
         [breakpoints.up("xl")]: {
-          marginLeft: pxToRem(274)
+          marginLeft: miniSidenav ? pxToRem(120) : pxToRem(274),
+          transition: transitions.create(["margin-left", "margin-right"], {
+            easing: transitions.easing.easeInOut,
+            duration: transitions.duration.standard,
+          }),
         },
       })}
     >

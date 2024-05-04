@@ -33,7 +33,7 @@ export default function Layout() {
   return (
     <>
       <LayoutContianer>
-        {layout === "dashboardd" && (
+        {layout === "dashboard" && (
           <>
             <Sidenav brandName="Hire Path" routes={routes} />
           </>
