@@ -1,45 +1,41 @@
-// react-router-dom components
 import { Link } from "react-router-dom";
-
-// @mui material components
-import Card from "@mui/material/Card";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
-
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
 import InputField from "components/InputFeild/inputField";
 
-import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import {
+  Typography,
+  Box,
+  Button,
+  Checkbox,
+  Card,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
 import PageLayout from "../LayoutType/pageLayout";
+import { TopInfoCard } from "./signUp-styles";
 
 function SignUp() {
   return (
     <PageLayout>
       <Card>
-        <MDBox
-          variant="gradient"
-          bgColor="info"
-          borderRadius="lg"
-          coloredShadow="success"
-          mx={2}
-          mt={-3}
-          p={3}
-          mb={1}
-          textAlign="center"
-        >
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+        <TopInfoCard mx={2} mt={-3} p={3} mb={1} textAlign="center">
+          <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
             Join us today
-          </MDTypography>
-          <MDTypography display="block" variant="button" color="white" my={1}>
+          </Typography>
+          <Typography display="block" variant="button" color="white" my={1}>
             Enter your email and password to register
-          </MDTypography>
-        </MDBox>
+          </Typography>
+        </TopInfoCard>
 
-        <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
-            <MDBox mb={2}>
+        <Box pt={4} pb={3} px={3}>
+          <Box component="form" role="form" id="signp-form">
+            <Box
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexDirection={"column"}
+              gap={2}
+            >
               <InputField
                 type="text"
                 name="name"
@@ -47,8 +43,6 @@ function SignUp() {
                 variant="standard"
                 fullWidth
               />
-            </MDBox>
-            <MDBox mb={2}>
               <InputField
                 type="email"
                 name="email"
@@ -56,8 +50,6 @@ function SignUp() {
                 variant="standard"
                 fullWidth
               />
-            </MDBox>
-            <MDBox mb={2}>
               <InputField
                 type="password"
                 name="password"
@@ -65,10 +57,9 @@ function SignUp() {
                 variant="standard"
                 fullWidth
               />
-            </MDBox>
-
-            <MDBox display="flex" alignItems="right" ml={0.6}>
-              <RadioGroup sx={{ flexDirection: "row" }} name="type">
+            </Box>
+            <Box display="flex" alignItems="center" justifyContent={"start"}>
+              <RadioGroup name="type" row>
                 <FormControlLabel
                   value="candidate"
                   control={<Radio />}
@@ -80,21 +71,21 @@ function SignUp() {
                   label="Company"
                 />
               </RadioGroup>
-            </MDBox>
+            </Box>
 
-            <MDBox display="flex" alignItems="center" ml={-1}>
+            <Box display="flex" alignItems="center" ml={-1}>
               <Checkbox />
 
-              <MDTypography
+              <Typography
                 variant="button"
                 fontWeight="regular"
                 color="text"
                 sx={{ cursor: "pointer", userSelect: "none", ml: -1 }}
               >
                 &nbsp;&nbsp;I agree the&nbsp;
-              </MDTypography>
+              </Typography>
 
-              <MDTypography
+              <Typography
                 component="a"
                 href="#"
                 variant="button"
@@ -103,19 +94,19 @@ function SignUp() {
                 textGradient
               >
                 Terms and Conditions
-              </MDTypography>
-            </MDBox>
+              </Typography>
+            </Box>
 
-            <MDBox mt={4} mb={1}>
+            <Box mt={4} mb={1}>
               <Button variant="gradient" color="info" fullWidth>
                 register
               </Button>
-            </MDBox>
+            </Box>
 
-            <MDBox mt={3} mb={1} textAlign="center">
-              <MDTypography variant="button" color="text">
+            <Box mt={3} mb={1} textAlign="center">
+              <Typography variant="button" color="text">
                 Already have an account?{" "}
-                <MDTypography
+                <Typography
                   component={Link}
                   to="/authentication/sign-in"
                   variant="button"
@@ -124,11 +115,11 @@ function SignUp() {
                   textGradient
                 >
                   Sign In
-                </MDTypography>
-              </MDTypography>
-            </MDBox>
-          </MDBox>
-        </MDBox>
+                </Typography>
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
       </Card>
     </PageLayout>
   );

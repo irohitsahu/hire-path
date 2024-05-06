@@ -1,27 +1,25 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
-// react-router-dom components
-import { Link } from "react-router-dom";
+import {
+  Card,
+  Switch,
+  Box,
+  Button,
+  Typography,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
-// @mui material components
-import Card from "@mui/material/Card";
-import Switch from "@mui/material/Switch";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import MuiLink from "@mui/material/Link";
-
-// @mui icons
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
 
-// Material Dashboard 2 React components
 import InputField from "src/components/InputFeild/inputField";
-import MDButton from "components/MDButton";
 
-import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { TopInfoCard } from "./signIn-styles";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import PageLayout from "layouts/page/LayoutType/pageLayout";
 
 function SignIn() {
@@ -44,7 +42,7 @@ function SignIn() {
           >
             <Grid2 item xs={2}>
               <Typography
-                component={MuiLink}
+                component={Link}
                 href="#"
                 variant="body1"
                 color="white"
@@ -54,7 +52,7 @@ function SignIn() {
             </Grid2>
             <Grid2 item xs={2}>
               <Typography
-                component={MuiLink}
+                component={Link}
                 href="#"
                 variant="body1"
                 color="white"
@@ -64,7 +62,7 @@ function SignIn() {
             </Grid2>
             <Grid2 item xs={2}>
               <Typography
-                component={MuiLink}
+                component={Link}
                 href="#"
                 variant="body1"
                 color="white"
@@ -122,9 +120,9 @@ function SignIn() {
             </Box>
 
             <Box mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
+              <Button variant="gradient" color="info" fullWidth>
                 Login
-              </MDButton>
+              </Button>
             </Box>
           </Box>
 
