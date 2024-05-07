@@ -8,6 +8,9 @@ const MaterialUI = createContext();
 
 function reducer(state, action) {
   switch (action.type) {
+    case "IS_USER_LOGGED": {
+      return { ...state, isUserLogged: action.value };
+    }
     case "MINI_SIDENAV": {
       return { ...state, miniSidenav: action.value };
     }
@@ -47,6 +50,7 @@ function reducer(state, action) {
 // Material Dashboard 2 React context provider
 function MaterialUIControllerProvider({ children }) {
   const initialState = {
+    userLogged: false,
     miniSidenav: false,
     transparentSidenav: false,
     whiteSidenav: false,
@@ -80,6 +84,9 @@ function useMaterialUIController() {
 }
 
 // Context module functions
+const setIsUserLogged = (dispatch, value) => {
+  dispatch({ type: "IS_USER_LOGGED", value });
+};
 const setMiniSidenav = (dispatch, value) =>
   dispatch({ type: "MINI_SIDENAV", value });
 const setTransparentSidenav = (dispatch, value) =>
@@ -102,6 +109,7 @@ const setDarkMode = (dispatch, value) => dispatch({ type: "DARKMODE", value });
 export {
   MaterialUIControllerProvider,
   useMaterialUIController,
+  setIsUserLogged,
   setMiniSidenav,
   setTransparentSidenav,
   setWhiteSidenav,

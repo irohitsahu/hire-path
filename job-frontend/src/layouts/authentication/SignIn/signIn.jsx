@@ -40,7 +40,7 @@ function SignIn() {
             justifyContent="center"
             sx={{ mt: 1, mb: 2 }}
           >
-            <Grid2 item xs={2}>
+            <Grid2 xs={2}>
               <Typography
                 component={Link}
                 href="#"
@@ -50,7 +50,7 @@ function SignIn() {
                 <FacebookIcon color="inherit" />
               </Typography>
             </Grid2>
-            <Grid2 item xs={2}>
+            <Grid2 xs={2}>
               <Typography
                 component={Link}
                 href="#"
@@ -60,7 +60,7 @@ function SignIn() {
                 <GitHubIcon color="inherit" />
               </Typography>
             </Grid2>
-            <Grid2 item xs={2}>
+            <Grid2 xs={2}>
               <Typography
                 component={Link}
                 href="#"

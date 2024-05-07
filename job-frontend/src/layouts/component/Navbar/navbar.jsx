@@ -9,7 +9,13 @@ import PersonIcon from "@mui/icons-material/Person";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyIcon from "@mui/icons-material/Key";
 
+// context
+import { useMaterialUIController } from "context";
+
 function Navbar() {
+  const [controller] = useMaterialUIController();
+  const { userLogged } = controller;
+
   return (
     <Box
       position="absolute"
@@ -37,57 +43,63 @@ function Navbar() {
         alignItems={"center"}
         gap={2}
       >
-        <Box
-          color="inherit"
-          component={Link}
-          to="/dashboard"
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"start"}
-          sx={{ cursor: "pointer", userSelect: "none" }}
-        >
-          <DonutIcon sx={{ mx: 1 }} fontSize="medium" />
-          Dashboard
-        </Box>
+        {userLogged ? (
+          <>
+            <Box
+              color="inherit"
+              component={Link}
+              to="/dashboard"
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"start"}
+              sx={{ cursor: "pointer", userSelect: "none" }}
+            >
+              <DonutIcon sx={{ mx: 1 }} fontSize="medium" />
+              Dashboard
+            </Box>
 
-        <Box
-          color="inherit"
-          component={Link}
-          to="/profile"
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"start"}
-          sx={{ cursor: "pointer", userSelect: "none" }}
-        >
-          <PersonIcon sx={{ mx: 1 }} fontSize="medium" />
-          Profile
-        </Box>
+            <Box
+              color="inherit"
+              component={Link}
+              to="/profile"
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"start"}
+              sx={{ cursor: "pointer", userSelect: "none" }}
+            >
+              <PersonIcon sx={{ mx: 1 }} fontSize="medium" />
+              Profile
+            </Box>
+          </>
+        ) : (
+          <>
+            <Box
+              color="inherit"
+              component={Link}
+              to="/authentication/sign-up"
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"start"}
+              sx={{ cursor: "pointer", userSelect: "none" }}
+            >
+              <AccountCircleIcon sx={{ mx: 1 }} fontSize="medium" />
+              Sign Up
+            </Box>
 
-        <Box
-          color="inherit"
-          component={Link}
-          to="/authentication/sign-up"
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"start"}
-          sx={{ cursor: "pointer", userSelect: "none" }}
-        >
-          <AccountCircleIcon sx={{ mx: 1 }} fontSize="medium" />
-          Sign Up
-        </Box>
-
-        <Box
-          color="inherit"
-          component={Link}
-          to="/authentication/sign-in"
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"start"}
-          sx={{ cursor: "pointer", userSelect: "none" }}
-        >
-          <KeyIcon sx={{ mx: 1 }} fontSize="medium" />
-          Sign In
-        </Box>
+            <Box
+              color="inherit"
+              component={Link}
+              to="/authentication/sign-in"
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"start"}
+              sx={{ cursor: "pointer", userSelect: "none" }}
+            >
+              <KeyIcon sx={{ mx: 1 }} fontSize="medium" />
+              Sign In
+            </Box>
+          </>
+        )}
       </Box>
     </Box>
   );

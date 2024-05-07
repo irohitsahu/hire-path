@@ -11,7 +11,7 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
-import PageLayout from "../LayoutType/pageLayout";
+import PageLayout from "../../page/LayoutType/pageLayout";
 import { TopInfoCard } from "./signUp-styles";
 
 function SignUp() {
@@ -91,7 +91,6 @@ function SignUp() {
                 variant="button"
                 fontWeight="bold"
                 color="info"
-                textGradient
               >
                 Terms and Conditions
               </Typography>
@@ -112,7 +111,6 @@ function SignUp() {
                   variant="button"
                   color="info"
                   fontWeight="medium"
-                  textGradient
                 >
                   Sign In
                 </Typography>

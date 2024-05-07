@@ -24,7 +24,7 @@
 import Dashboard from "../layouts/dashboard-components/dashboard/dashboard";
 import Profile from "../layouts/dashboard-components/profile/profile";
 import Tables from "../layouts/dashboard-components/tables/appliedJobTable";
-import ResetPassword from "../layouts/authentication/resetPassword";
+import ResetPassword from "../layouts/authentication/ResetPassword/resetPassword";
 import LandingPageInfo from "src/layouts/page/Home/landingInfo";
 import Logout from "../layouts/authentication/logout";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -35,9 +35,8 @@ import CompanyAbout from "src/layouts/companyDetails/CompanyAbout";
 import CompanyAddress from "src/layouts/companyDetails/CompanyAddress";
 import CompanyHr from "src/layouts/companyDetails/CompanyHr";
 import CompanyJobPost from "src/layouts/companyDetails/CompanyJobPost";
-import SignUp from "src/layouts/page/SignUp/signUp";
-import SignIn from "src/layouts/page/SignIn/signIn";
-
+import SignIn from "src/layouts/authentication/SignIn/signIn";
+import SignUp from "src/layouts/authentication/SignUp/signUp";
 // @mui icons
 import WorkIcon from "@mui/icons-material/Work";
 import ResetIcon from "@mui/icons-material/RestartAlt";
@@ -83,7 +82,7 @@ const routes = [
     name: "Reset Password",
     key: "reset-password",
     icon: <ResetIcon color="white" />,
-    route: "/authentication/reset-password",
+    route: "/authentication/reset-password/*",
     component: <ResetPassword />,
   },
   {
