@@ -21,23 +21,23 @@
 */
 
 // Material Dashboard 2 React layouts
-import Dashboard from "../layouts/dashboard-components/dashboard/dashboard";
-import Profile from "../layouts/dashboard-components/profile/profile";
-import Tables from "../layouts/dashboard-components/tables/appliedJobTable";
-import ResetPassword from "../layouts/authentication/ResetPassword/resetPassword";
-import LandingPageInfo from "src/layouts/page/Home/landingInfo";
-import Logout from "../layouts/authentication/logout";
-import LogoutIcon from "@mui/icons-material/Logout";
-import CandidateBasic from "src/layouts/candidateDetails/CandidateBasic";
-import CandidateEdu from "src/layouts/candidateDetails/CandidateEdu";
-import CandidateSkills from "src/layouts/candidateDetails/CandidateSkills";
-import CompanyAbout from "src/layouts/companyDetails/CompanyAbout";
-import CompanyAddress from "src/layouts/companyDetails/CompanyAddress";
-import CompanyHr from "src/layouts/companyDetails/CompanyHr";
-import CompanyJobPost from "src/layouts/companyDetails/CompanyJobPost";
-import SignIn from "src/layouts/authentication/SignIn/signIn";
-import SignUp from "src/layouts/authentication/SignUp/signUp";
+import Dashboard from "layouts/dashboard-components/dashboard/dashboard";
+import Profile from "layouts/dashboard-components/profile/profile";
+import Tables from "layouts/dashboard-components/tables/appliedJobTable";
+import ResetPassword from "layouts/authentication/ResetPassword/resetPassword";
+import LandingPageInfo from "layouts/page/Home/landingInfo";
+import Logout from "layouts/authentication/logout";
+import CandidateBasic from "layouts/candidateDetails/CandidateBasic";
+import CandidateEdu from "layouts/candidateDetails/CandidateEdu";
+import CandidateSkills from "layouts/candidateDetails/CandidateSkills";
+import CompanyAbout from "layouts/companyDetails/CompanyAbout";
+import CompanyAddress from "layouts/companyDetails/CompanyAddress";
+import CompanyHr from "layouts/companyDetails/CompanyHr";
+import CompanyJobPost from "layouts/companyDetails/CompanyJobPost";
+import SignIn from "layouts/authentication/SignIn/signIn";
+import SignUp from "layouts/authentication/SignUp/signUp";
 // @mui icons
+import LogoutIcon from "@mui/icons-material/Logout";
 import WorkIcon from "@mui/icons-material/Work";
 import ResetIcon from "@mui/icons-material/RestartAlt";
 import AccountIcon from "@mui/icons-material/AccountBox";
