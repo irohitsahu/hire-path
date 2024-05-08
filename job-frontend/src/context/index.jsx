@@ -11,6 +11,9 @@ function reducer(state, action) {
     case "IS_USER_LOGGED": {
       return { ...state, isUserLogged: action.value };
     }
+    case "USER_TYPE": {
+      return { ...state, userType: action.value };
+    }
     case "MINI_SIDENAV": {
       return { ...state, miniSidenav: action.value };
     }
@@ -51,6 +54,7 @@ function reducer(state, action) {
 function MaterialUIControllerProvider({ children }) {
   const initialState = {
     userLogged: false,
+    userType: "candidate",
     miniSidenav: false,
     transparentSidenav: false,
     whiteSidenav: false,
@@ -87,6 +91,9 @@ function useMaterialUIController() {
 const setIsUserLogged = (dispatch, value) => {
   dispatch({ type: "IS_USER_LOGGED", value });
 };
+const setUserType = (dispatch, value) => {
+  dispatch({ type: "USER_TYPE", value });
+};
 const setMiniSidenav = (dispatch, value) =>
   dispatch({ type: "MINI_SIDENAV", value });
 const setTransparentSidenav = (dispatch, value) =>
@@ -110,6 +117,7 @@ export {
   MaterialUIControllerProvider,
   useMaterialUIController,
   setIsUserLogged,
+  setUserType,
   setMiniSidenav,
   setTransparentSidenav,
   setWhiteSidenav,

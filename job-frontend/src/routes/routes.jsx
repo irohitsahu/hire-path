@@ -47,6 +47,7 @@ import HomeIcon from "@mui/icons-material/Home";
 const routes = [
   {
     type: "collapse",
+    for: "both",
     name: "Home",
     key: "home",
     icon: <HomeIcon color="white" />,
@@ -55,6 +56,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Dashboard",
     key: "dashboard",
     icon: <DashboardIcon color="white" />,
@@ -63,6 +65,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Profile",
     key: "profile",
     icon: <AccountIcon color="white" />,
@@ -71,6 +74,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "candidate",
     name: "Available Job's",
     key: "availableJob",
     icon: <WorkIcon color="white" />,
@@ -79,6 +83,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Reset Password",
     key: "reset-password",
     icon: <ResetIcon color="white" />,
@@ -87,6 +92,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Logout",
     key: "logout",
     icon: <LogoutIcon color="white" />,
@@ -95,6 +101,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Candidate Basic",
     key: "candidate-basic",
     icon: <LogoutIcon color="white" />,
@@ -103,6 +110,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Education",
     key: "education",
     icon: <LogoutIcon color="white" />,
@@ -111,6 +119,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Skills",
     key: "skills",
     icon: <LogoutIcon color="white" />,
@@ -119,6 +128,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "About",
     key: "About",
     icon: <LogoutIcon color="white" />,
@@ -127,6 +137,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Address",
     key: "address",
     icon: <LogoutIcon color="white" />,
@@ -135,6 +146,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Human Resource",
     key: "human-resource",
     icon: <LogoutIcon color="white" />,
@@ -143,6 +155,7 @@ const routes = [
   },
   {
     type: "collapse",
+    for: "both",
     name: "Job Post",
     key: "job-post",
     icon: <LogoutIcon color="white" />,
@@ -150,7 +163,8 @@ const routes = [
     component: <CompanyJobPost />,
   },
   {
-    type: "collapse",
+    type: "",
+    for: "both",
     name: "Sign Up",
     key: "sign-up",
     icon: <LogoutIcon color="white" />,
