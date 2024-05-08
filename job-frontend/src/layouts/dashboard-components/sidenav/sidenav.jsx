@@ -25,32 +25,15 @@ import SidenavRoot from "./sidenavRoot";
 import sidenavLogoLabel from "./styles/sidenav";
 
 // Material Dashboard 2 React context
-import {
-  useMaterialUIController,
-  setMiniSidenav,
-  setTransparentSidenav,
-  setWhiteSidenav,
-} from "context";
+import { useMaterialUIController, setMiniSidenav } from "context";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const [controller, dispatch] = useMaterialUIController();
-  const {
-    miniSidenav,
-    transparentSidenav,
-    whiteSidenav,
-    darkMode,
-    sidenavColor,
-  } = controller;
+  const { miniSidenav, darkMode, sidenavColor } = controller;
   const location = useLocation();
   const collapseName = location.pathname.replace("/", "");
 
   let textColor = "white";
-
-  if (transparentSidenav || (whiteSidenav && !darkMode)) {
-    textColor = "dark";
-  } else if (whiteSidenav && darkMode) {
-    textColor = "inherit";
-  }
 
   const closeSidenav = () => setMiniSidenav(dispatch, true);
 
@@ -58,14 +41,6 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
     // A function that sets the mini state of the sidenav.
     function handleMiniSidenav() {
       setMiniSidenav(dispatch, window.innerWidth < 1200);
-      setTransparentSidenav(
-        dispatch,
-        window.innerWidth < 1200 ? false : transparentSidenav
-      );
-      setWhiteSidenav(
-        dispatch,
-        window.innerWidth < 1200 ? false : whiteSidenav
-      );
     }
 
     /** 
@@ -128,15 +103,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </Typography>
         );
       } else if (type === "divider") {
-        returnValue = (
-          <Divider
-            key={key}
-            light={
-              (!darkMode && !whiteSidenav && !transparentSidenav) ||
-              (darkMode && !transparentSidenav && whiteSidenav)
-            }
-          />
-        );
+        returnValue = <Divider key={key} light={true} />;
       }
 
       return returnValue;
@@ -144,11 +111,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   );
 
   return (
-    <SidenavRoot
-      {...rest}
-      variant="permanent"
-      ownerState={{ transparentSidenav, whiteSidenav, miniSidenav, darkMode }}
-    >
+    <SidenavRoot {...rest} variant="permanent" ownerState={{ darkMode }}>
       <Box pt={3} pb={1} px={4} textAlign="center">
         <Box
           display={{ xs: "block", xl: "none" }}
@@ -182,12 +145,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </Box>
         </Box>
       </Box>
-      <Divider
-        light={
-          (!darkMode && !whiteSidenav && !transparentSidenav) ||
-          (darkMode && !transparentSidenav && whiteSidenav)
-        }
-      />
+      <Divider light={true} />
       <List>{renderRoutes}</List>
       <Box p={2} mt="auto">
         <Button
