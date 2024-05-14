@@ -4,35 +4,16 @@ import Grid from "@mui/material/Grid";
 // Material Dashboard 2 React components
 import MDBox from "../../../components/MDBox";
 
-// Material Dashboard 2 React example components
-import DashboardLayout from "./dashboardLayout";
+// Material Dashboard 2 React example components";
 import DashboardNavbar from "./dashboardNavbar";
 import Footer from "./dashboardFooter";
-import ComplexStatisticsCard from "./complexStatisticsCard";
+import ComplexStatisticsCard from "../../../components/CardBox/complexStatisticsCard";
 
 // Dashboard components
 import JobList from "./jobList";
-import { useEffect, useState } from "react";
-
-import Axios from "axios";
-
-
+import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 
 function Dashboard() {
-
-  const [totalJobs, setTotalJobs] = useState('');
-
-  useEffect(() => {
-    Axios.get(
-      "http://localhost:7000/api/candidates/jobs/getalljobsno",
-      { withCredentials: true }
-    )
-      .then((res) => {
-        console.log(res.data.data);
-        setTotalJobs(res.data.data);
-      })
-  })
-
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -44,7 +25,7 @@ function Dashboard() {
                 color="dark"
                 icon="weekend"
                 title="Total Jobs"
-                count={totalJobs}
+                count={26}
                 percentage={{
                   color: "success",
                   amount: "+55%",
@@ -67,11 +48,9 @@ function Dashboard() {
               />
             </MDBox>
           </Grid>
-
         </Grid>
         <MDBox mt={4.5}>
           <Grid container spacing={3}>
-
             <Grid item xs={12} md={6} lg={12}>
               <MDBox mb={3}>
                 <JobList />

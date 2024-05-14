@@ -1,20 +1,16 @@
-// prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
-// @mui material components
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import Icon from "@mui/material/Icon";
 
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
+import { Box, Typography } from "@mui/material";
 
 function ComplexStatisticsCard({ color, title, count, percentage, icon }) {
   return (
     <Card>
-      <MDBox display="flex" justifyContent="space-between" pt={1} px={2}>
-        <MDBox
+      <Box display="flex" justifyContent="space-between" pt={1} px={2}>
+        <Box
           variant="gradient"
           bgColor={color}
           color={color === "light" ? "dark" : "white"}
@@ -30,28 +26,28 @@ function ComplexStatisticsCard({ color, title, count, percentage, icon }) {
           <Icon fontSize="medium" color="inherit">
             {icon}
           </Icon>
-        </MDBox>
-        <MDBox textAlign="right" lineHeight={1.25}>
-          <MDTypography variant="button" fontWeight="light" color="text">
+        </Box>
+        <Box textAlign="right" lineHeight={1.25}>
+          <Typography variant="button" fontWeight="light" color="text">
             {title}
-          </MDTypography>
-          <MDTypography variant="h4">{count}</MDTypography>
-        </MDBox>
-      </MDBox>
+          </Typography>
+          <Typography variant="h4">{count}</Typography>
+        </Box>
+      </Box>
       <Divider />
-      <MDBox pb={2} px={2}>
-        <MDTypography component="p" variant="button" color="text" display="flex">
-          <MDTypography
+      <Box pb={2} px={2}>
+        <Typography component="p" variant="button" color="text" display="flex">
+          <Typography
             component="span"
             variant="button"
             fontWeight="bold"
             color={percentage.color}
           >
             {percentage.amount}
-          </MDTypography>
+          </Typography>
           &nbsp;{percentage.label}
-        </MDTypography>
-      </MDBox>
+        </Typography>
+      </Box>
     </Card>
   );
 }

@@ -7,14 +7,12 @@ import MDBox from "../../../components/MDBox";
 import MDTypography from "../../../components/MDTypography";
 
 // Material Dashboard 2 React example components
-import DashboardLayout from "../dashboard/dashboardLayout";
+import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 import DashboardNavbar from "../dashboard/dashboardNavbar";
 import Footer from "../dashboard/dashboardFooter";
 import DataTable from "./tableData";
 
-
 function Tables() {
-
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -40,57 +38,151 @@ function Tables() {
                 <DataTable
                   table={{
                     columns: [
-                      { Header: "Company Name", accessor: "companyName", width: "45%", align: "left" },
-                      { Header: "Job Description", accessor: "jobDescription", width: "10%", align: "left" },
-                      { Header: "Type Of Job", accessor: "typeOfJob", align: "center" },
-                      { Header: "Mode Of Job", accessor: "modeOfJob", align: "center" },
-                      { Header: "Responsibility", accessor: "responsibility", align: "center" },
-                      { Header: "Requirment", accessor: "requirment", align: "center" },
+                      {
+                        Header: "Company Name",
+                        accessor: "companyName",
+                        width: "45%",
+                        align: "left",
+                      },
+                      {
+                        Header: "Job Description",
+                        accessor: "jobDescription",
+                        width: "10%",
+                        align: "left",
+                      },
+                      {
+                        Header: "Type Of Job",
+                        accessor: "typeOfJob",
+                        align: "center",
+                      },
+                      {
+                        Header: "Mode Of Job",
+                        accessor: "modeOfJob",
+                        align: "center",
+                      },
+                      {
+                        Header: "Responsibility",
+                        accessor: "responsibility",
+                        align: "center",
+                      },
+                      {
+                        Header: "Requirment",
+                        accessor: "requirment",
+                        align: "center",
+                      },
                     ],
 
                     rows: [
                       {
-                        companyName: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                          DEF COMPANY
-                        </MDTypography>),
-                        jobDescription: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                          CDE SSKIL
-                        </MDTypography>),
+                        companyName: (
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
+                            DEF COMPANY
+                          </MDTypography>
+                        ),
+                        jobDescription: (
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
+                            CDE SSKIL
+                          </MDTypography>
+                        ),
                         typeOfJob: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             23/04/18
                           </MDTypography>
                         ),
                         modeOfJob: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             Edit
                           </MDTypography>
                         ),
                         responsibility: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             23/04/18
                           </MDTypography>
                         ),
                         requirment: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             23/04/18
                           </MDTypography>
                         ),
                       },
                       {
-                        companyName: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                          ABC COMPANY
-                        </MDTypography>),
-                        jobName: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                          CDE SSKIL
-                        </MDTypography>),
+                        companyName: (
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
+                            ABC COMPANY
+                          </MDTypography>
+                        ),
+                        jobName: (
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
+                            CDE SSKIL
+                          </MDTypography>
+                        ),
                         status: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             23/04/18
                           </MDTypography>
                         ),
                         appliedDate: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <MDTypography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             Edit
                           </MDTypography>
                         ),

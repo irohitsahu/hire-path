@@ -17,18 +17,10 @@ import MDInput from "../../../components/MDInput";
 import Breadcrumbs from "./breadCrumbs";
 import { Container } from "@mui/material";
 
-
-
-
-function DashboardNavbar({ }) {
+function DashboardNavbar() {
   const route = useLocation().pathname.split("/").slice(1);
 
-
-
-
-
   return (
-
     <Container>
       <MDBox
         py={1}
@@ -39,42 +31,39 @@ function DashboardNavbar({ }) {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        sx={({
-          palette: { white },
-          functions: { rgba },
-        }) => ({
+        sx={({ palette: { white }, functions: { rgba } }) => ({
           backgroundColor: rgba(white.main, 0.8),
           backdropFilter: `saturate(200%) blur(30px)`,
         })}
       >
-        <MDBox color="inherit"  >
-          <Breadcrumbs alignItems="left" icon="home" title={route[route.length - 1]} route={route} />
+        <MDBox color="inherit">
+          <Breadcrumbs
+            alignItems="left"
+            icon="home"
+            title={route[route.length - 1]}
+            route={route}
+          />
         </MDBox>
 
-
-        <MDBox xl={12} p={1} alignItems="center" >
+        <MDBox xl={12} p={1} alignItems="center">
           <MDBox>
-            <MDBox >
+            <MDBox>
               <MDInput label="Search here" />
             </MDBox>
 
-
-            <MDBox textAlign="right" >
+            <MDBox textAlign="right">
               <Link to="/profile">
-                <IconButton
-                  size="large">
-                  <Icon >account_circle</Icon>
+                <IconButton size="large">
+                  <Icon>account_circle</Icon>
                 </IconButton>
               </Link>
 
-              <IconButton
-                size="large" >
-                <Icon >settings</Icon>
+              <IconButton size="large">
+                <Icon>settings</Icon>
               </IconButton>
 
-              <IconButton
-                size="large">
-                <Icon >notifications</Icon>
+              <IconButton size="large">
+                <Icon>notifications</Icon>
               </IconButton>
             </MDBox>
           </MDBox>

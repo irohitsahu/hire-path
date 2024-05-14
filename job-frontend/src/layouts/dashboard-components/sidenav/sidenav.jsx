@@ -1,17 +1,13 @@
 import { useEffect } from "react";
 
-// react-router-dom components
 import { useLocation, NavLink } from "react-router-dom";
 
-// prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
 
-// @mui material components
 import { List, Divider, Link, Box, Typography, ListItem } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
 
-// Custom styles for the Sidenav
 import {
   CollapseIcon,
   CollapseIconBox,
@@ -21,7 +17,6 @@ import {
   SideNavbarLogoLabel,
 } from "./sidenav-styles";
 
-// Material Dashboard 2 React context
 import { useMaterialUIController, setMiniSidenav } from "context";
 
 function Sidenav({ brand, brandName, routes, ...rest }) {

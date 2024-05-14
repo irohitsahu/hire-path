@@ -11,7 +11,7 @@ function PageLayout({ children }) {
 
   useEffect(() => {
     setLayout(dispatch, "page");
-  }, [pathname]);
+  }, [dispatch]);
 
   return (
     <Container maxWidth={pathname.pathname === "/home" ? "lg" : "xs"}>
