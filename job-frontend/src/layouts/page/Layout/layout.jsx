@@ -38,13 +38,17 @@ export default function Layout() {
             <Sidenav brandName="Hire Path" routes={routes} />
           </>
         )}
+        {layout === "page" && (
+          <>
+            <Navbar />
+            <Footer />
+          </>
+        )}
 
-        <Navbar />
         <Routes>
           {getRoutes(routes)}
           <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
-        <Footer />
       </LayoutContianer>
     </>
   );

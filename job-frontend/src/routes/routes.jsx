@@ -105,7 +105,7 @@ const routes = [
     name: "Candidate Basic",
     key: "candidate-basic",
     icon: <LogoutIcon color="white" />,
-    route: "/candidate-basic",
+    route: "/candidate-basic/*",
     component: <CandidateBasic />,
   },
   {

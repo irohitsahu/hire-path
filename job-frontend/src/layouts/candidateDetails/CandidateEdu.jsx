@@ -4,25 +4,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 // @mui material components
-import Card from "@mui/material/Card";
+import { Card, Box, Typography, Input, Button } from "@mui/material";
 
-// Material Dashboard 2 React components
-import MDBox from "../../components/MDBox";
-import MDTypography from "../../components/MDTypography";
-import MDInput from "../../components/MDInput";
-import MDButton from "../../components/MDButton";
-
-// Images
-import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../page/Layout/layout";
-
-import Axios from "axios";
-import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
-import FolderIcon from "@mui/icons-material/Folder";
-import PageviewIcon from "@mui/icons-material/Pageview";
-
-import Cookies from "js-cookie";
+import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 
 //Educational Details
 
@@ -75,9 +59,9 @@ function CandidateEdu() {
   };
 
   return (
-    <BasicLayout image={bgImage}>
+    <DashboardLayout>
       <Card>
-        <MDBox
+        <Box
           variant="gradient"
           bgColor="info"
           borderRadius="lg"
@@ -88,15 +72,15 @@ function CandidateEdu() {
           mb={1}
           textAlign="center"
         >
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+          <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
             Enter Education Details
-          </MDTypography>
-        </MDBox>
+          </Typography>
+        </Box>
 
-        <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
-            <MDBox mb={2}>
-              <MDInput
+        <Box pt={4} pb={3} px={3}>
+          <Box component="form" role="form">
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="nameOfInstitute"
                 value={candidate.nameOfInstitute}
@@ -104,10 +88,10 @@ function CandidateEdu() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="nameOfUniversity"
                 value={candidate.nameOfUniversity}
@@ -115,10 +99,10 @@ function CandidateEdu() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="stream"
                 value={candidate.stream}
@@ -126,10 +110,10 @@ function CandidateEdu() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="number"
                 name="admissionYear"
                 value={candidate.admissionYear}
@@ -138,10 +122,10 @@ function CandidateEdu() {
                 multiline
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="number"
                 name="passingYear"
                 value={candidate.passingYear}
@@ -150,10 +134,10 @@ function CandidateEdu() {
                 multiline
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="aggregate"
                 value={candidate.aggregate}
@@ -161,32 +145,27 @@ function CandidateEdu() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mt={4} mb={1}>
-              <MDButton
-                variant="gradient"
-                color="info"
-                fullWidth
-                onClick={save}
-              >
+            <Box mt={4} mb={1}>
+              <Button variant="gradient" color="info" fullWidth onClick={save}>
                 Save
-              </MDButton>
-            </MDBox>
-            <MDBox mt={4} mb={1}>
-              <MDButton
+              </Button>
+            </Box>
+            <Box mt={4} mb={1}>
+              <Button
                 variant="gradient"
                 color="success"
                 fullWidth
                 href="/candidate-skills"
               >
                 Candidate Skills
-              </MDButton>
-            </MDBox>
-          </MDBox>
-        </MDBox>
+              </Button>
+            </Box>
+          </Box>
+        </Box>
       </Card>
-    </BasicLayout>
+    </DashboardLayout>
   );
 }
 

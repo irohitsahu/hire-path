@@ -1,12 +1,9 @@
 // @mui material components
 import Grid from "@mui/material/Grid";
-
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
+import { Box } from "@mui/material";
 
 // Material Dashboard 2 React example components";
 import DashboardNavbar from "./dashboardNavbar";
-import Footer from "./dashboardFooter";
 import ComplexStatisticsCard from "../../../components/CardBox/complexStatisticsCard";
 
 // Dashboard components
@@ -17,10 +14,10 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox py={3}>
+      <Box py={3}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={6}>
-            <MDBox mb={1.5}>
+            <Box mb={1.5}>
               <ComplexStatisticsCard
                 color="dark"
                 icon="weekend"
@@ -32,10 +29,10 @@ function Dashboard() {
                   label: "than lask week",
                 }}
               />
-            </MDBox>
+            </Box>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
-            <MDBox mb={1.5}>
+            <Box mb={1.5}>
               <ComplexStatisticsCard
                 icon="leaderboard"
                 title="Today's Users"
@@ -46,20 +43,19 @@ function Dashboard() {
                   label: "than last month",
                 }}
               />
-            </MDBox>
+            </Box>
           </Grid>
         </Grid>
-        <MDBox mt={4.5}>
+        <Box mt={4.5}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={12}>
-              <MDBox mb={3}>
+              <Box mb={3}>
                 <JobList />
-              </MDBox>
+              </Box>
             </Grid>
           </Grid>
-        </MDBox>
-      </MDBox>
-      <Footer />
+        </Box>
+      </Box>
     </DashboardLayout>
   );
 }

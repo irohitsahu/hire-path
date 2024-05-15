@@ -4,17 +4,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 // @mui material components
-import Card from "@mui/material/Card";
-import Grid from "@mui/material/Grid";
-import AppBar from "@mui/material/AppBar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Icon from "@mui/material/Icon";
-
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
-import MDAvatar from "../../../components/MDAvatar";
+import { Grid, Card, Box, Avatar } from "@mui/material/";
 
 // Material Dashboard 2 React base styles
 import breakpoints from "../../../assets/theme/base/breakpoints";
@@ -49,15 +39,18 @@ function ProfileHeader({ children }) {
   const handleSetTabValue = (event, newValue) => setTabValue(newValue);
 
   return (
-    <MDBox position="relative" mb={5}>
-      <MDBox
+    <Box position="relative" mb={5}>
+      <Box
         display="flex"
         alignItems="center"
         position="relative"
         minHeight="18.75rem"
         borderRadius="xl"
         sx={{
-          backgroundImage: ({ functions: { rgba, linearGradient }, palette: { gradients } }) =>
+          backgroundImage: ({
+            functions: { rgba, linearGradient },
+            palette: { gradients },
+          }) =>
             `${linearGradient(
               rgba(gradients.info.main, 0.6),
               rgba(gradients.info.state, 0.6)
@@ -78,7 +71,7 @@ function ProfileHeader({ children }) {
       >
         <Grid container spacing={3} alignItems="center">
           <Grid item>
-            <MDAvatar src={""} alt="profile-image" size="xl" shadow="sm" />
+            <Avatar src={""} alt="profile-image" size="xl" shadow="sm" />
           </Grid>
 
           {/* <Grid item xs={12} md={6} lg={4} sx={{ ml: "auto" }}>
@@ -114,7 +107,7 @@ function ProfileHeader({ children }) {
         </Grid>
         {children}
       </Card>
-    </MDBox>
+    </Box>
   );
 }
 

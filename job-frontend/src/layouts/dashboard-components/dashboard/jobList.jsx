@@ -1,18 +1,9 @@
 import { useState } from "react";
 
-// @mui material components
-import Card from "@mui/material/Card";
-import Icon from "@mui/material/Icon";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
+import { Box, Typography, Card, Icon, Menu, MenuItem } from "@mui/material";
 
 // Material Dashboard 2 React examples
 import DataTable from "../tables/tableData";
-
 
 function JobList() {
   const [menu, setMenu] = useState(null);
@@ -43,12 +34,17 @@ function JobList() {
 
   return (
     <Card>
-      <MDBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
-        <MDBox>
-          <MDTypography variant="h6" gutterBottom>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        p={3}
+      >
+        <Box>
+          <Typography variant="h6" gutterBottom>
             Job List
-          </MDTypography>
-          <MDBox display="flex" alignItems="center" lineHeight={0}>
+          </Typography>
+          <Box display="flex" alignItems="center" lineHeight={0}>
             <Icon
               sx={{
                 fontWeight: "bold",
@@ -58,57 +54,103 @@ function JobList() {
             >
               done
             </Icon>
-            <MDTypography variant="button" fontWeight="regular" color="text">
+            <Typography variant="button" fontWeight="regular" color="text">
               &nbsp;<strong>30 done</strong> this month
-            </MDTypography>
-          </MDBox>
-        </MDBox>
-        <MDBox color="text" px={2}>
-          <Icon sx={{ cursor: "pointer", fontWeight: "bold" }} fontSize="small" onClick={openMenu}>
+            </Typography>
+          </Box>
+        </Box>
+        <Box color="text" px={2}>
+          <Icon
+            sx={{ cursor: "pointer", fontWeight: "bold" }}
+            fontSize="small"
+            onClick={openMenu}
+          >
             more_vert
           </Icon>
-        </MDBox>
+        </Box>
         {renderMenu}
-      </MDBox>
-      <MDBox>
+      </Box>
+      <Box>
         <DataTable
           table={{
             columns: [
-              { Header: "Company Name", accessor: "companyName", width: "45%", align: "left" },
-              { Header: "Job Description", accessor: "jobDescription", width: "10%", align: "left" },
+              {
+                Header: "Company Name",
+                accessor: "companyName",
+                width: "45%",
+                align: "left",
+              },
+              {
+                Header: "Job Description",
+                accessor: "jobDescription",
+                width: "10%",
+                align: "left",
+              },
               { Header: "Type Of Job", accessor: "typeOfJob", align: "center" },
               { Header: "Mode Of Job", accessor: "modeOfJob", align: "center" },
-              { Header: "Responsibility", accessor: "responsibility", align: "center" },
+              {
+                Header: "Responsibility",
+                accessor: "responsibility",
+                align: "center",
+              },
               { Header: "Requirment", accessor: "requirment", align: "center" },
             ],
 
             rows: [
               {
-                companyName: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                  DEF COMPANY
-                </MDTypography>),
-                jobName: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                  CDE SSKIL
-                </MDTypography>),
+                companyName: (
+                  <Typography
+                    component="a"
+                    href="#"
+                    variant="caption"
+                    color="text"
+                    fontWeight="medium"
+                  >
+                    DEF COMPANY
+                  </Typography>
+                ),
+                jobName: (
+                  <Typography
+                    component="a"
+                    href="#"
+                    variant="caption"
+                    color="text"
+                    fontWeight="medium"
+                  >
+                    CDE SSKIL
+                  </Typography>
+                ),
                 status: (
-                  <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                  <Typography
+                    component="a"
+                    href="#"
+                    variant="caption"
+                    color="text"
+                    fontWeight="medium"
+                  >
                     23/04/18
-                  </MDTypography>
+                  </Typography>
                 ),
                 appliedDate: (
-                  <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                  <Typography
+                    component="a"
+                    href="#"
+                    variant="caption"
+                    color="text"
+                    fontWeight="medium"
+                  >
                     Edit
-                  </MDTypography>
+                  </Typography>
                 ),
               },
-            ]
+            ],
           }}
           showTotalEntries={false}
           isSorted={false}
           noEndBorder
           entriesPerPage={false}
         />
-      </MDBox>
+      </Box>
     </Card>
   );
 }

@@ -1,28 +1,23 @@
-import { useState, useEffect } from "react";
-
 // react-router components
 import { useLocation, Link } from "react-router-dom";
 
 // @material-ui core components
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
 import MDInput from "../../../components/MDInput";
 
 // Material Dashboard 2 React example components
 import Breadcrumbs from "./breadCrumbs";
-import { Container } from "@mui/material";
+import { Container, Box } from "@mui/material";
 
 function DashboardNavbar() {
   const route = useLocation().pathname.split("/").slice(1);
 
   return (
     <Container>
-      <MDBox
+      <Box
         py={1}
         px={{ lg: 2 }}
         width="100%"
@@ -36,22 +31,22 @@ function DashboardNavbar() {
           backdropFilter: `saturate(200%) blur(30px)`,
         })}
       >
-        <MDBox color="inherit">
+        <Box color="inherit">
           <Breadcrumbs
             alignItems="left"
             icon="home"
             title={route[route.length - 1]}
             route={route}
           />
-        </MDBox>
+        </Box>
 
-        <MDBox xl={12} p={1} alignItems="center">
-          <MDBox>
-            <MDBox>
+        <Box xl={12} p={1} alignItems="center">
+          <Box>
+            <Box>
               <MDInput label="Search here" />
-            </MDBox>
+            </Box>
 
-            <MDBox textAlign="right">
+            <Box textAlign="right">
               <Link to="/profile">
                 <IconButton size="large">
                   <Icon>account_circle</Icon>
@@ -65,10 +60,10 @@ function DashboardNavbar() {
               <IconButton size="large">
                 <Icon>notifications</Icon>
               </IconButton>
-            </MDBox>
-          </MDBox>
-        </MDBox>
-      </MDBox>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     </Container>
   );
 }

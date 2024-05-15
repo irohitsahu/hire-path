@@ -14,7 +14,6 @@ import MDSnackbar from "../../../components/MDSnackbar";
 // Material Dashboard 2 React example components
 import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 import DashboardNavbar from "../dashboard/dashboardNavbar";
-import Footer from "../dashboard/dashboardFooter";
 
 function Notifications() {
   const [successSB, setSuccessSB] = useState(false);
@@ -205,7 +204,6 @@ function Notifications() {
           </Grid>
         </Grid>
       </MDBox>
-      <Footer />
     </DashboardLayout>
   );
 }

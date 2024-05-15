@@ -1,10 +1,15 @@
-import { useMemo, useEffect, useState } from "react";
+import { useMemo } from "react";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
 // react-table components
-import { useTable, usePagination, useGlobalFilter, useSortBy } from "react-table";
+import {
+  useTable,
+  usePagination,
+  useGlobalFilter,
+  useSortBy,
+} from "react-table";
 
 // @mui material components
 import Table from "@mui/material/Table";
@@ -15,9 +20,7 @@ import TableRow from "@mui/material/TableRow";
 // Material Dashboard 2 React components
 import MDBox from "../../../components/MDBox";
 
-function DataTable({
-  table
-}) {
+function DataTable({ table }) {
   const columns = useMemo(() => table.columns, [table]);
   const data = useMemo(() => table.rows, [table]);
 
@@ -28,23 +31,18 @@ function DataTable({
     usePagination
   );
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    prepareRow,
-    page
-  } = tableInstance;
-
+  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, page } =
+    tableInstance;
 
   return (
     <TableContainer sx={{ boxShadow: "none" }}>
       <Table {...getTableProps()}>
         <MDBox component="thead">
-          {headerGroups.map((headerGroup) => (
-            <TableRow {...headerGroup.getHeaderGroupProps()}>
+          {headerGroups.map((headerGroup, key) => (
+            <TableRow key={key} {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <MDBox
+                  key={key}
                   component="th"
                   width="auto"
                   py={1.5}
@@ -77,9 +75,10 @@ function DataTable({
           {page.map((row, key) => {
             prepareRow(row);
             return (
-              <TableRow {...row.getRowProps()}>
+              <TableRow key={key} {...row.getRowProps()}>
                 {row.cells.map((cell) => (
                   <MDBox
+                    key={key}
                     component="td"
                     textAlign="center"
                     py={1.5}

@@ -9,7 +9,6 @@ import MDTypography from "../../../components/MDTypography";
 // Material Dashboard 2 React example components
 import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 import DashboardNavbar from "../dashboard/dashboardNavbar";
-import Footer from "../dashboard/dashboardFooter";
 import DataTable from "./tableData";
 
 function Tables() {
@@ -199,7 +198,6 @@ function Tables() {
           </Grid>
         </Grid>
       </MDBox>
-      <Footer />
     </DashboardLayout>
   );
 }
