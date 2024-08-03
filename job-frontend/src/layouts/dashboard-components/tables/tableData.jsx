@@ -1,23 +1,25 @@
-import { useMemo, useEffect, useState } from "react";
+import { useMemo } from "react";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
 // react-table components
-import { useTable, usePagination, useGlobalFilter, useSortBy } from "react-table";
+import {
+  useTable,
+  usePagination,
+  useGlobalFilter,
+  useSortBy,
+} from "react-table";
 
 // @mui material components
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
+import { Box } from "@mui/material";
 
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
 
-function DataTable({
-  table
-}) {
+function DataTable({ table }) {
   const columns = useMemo(() => table.columns, [table]);
   const data = useMemo(() => table.rows, [table]);
 
@@ -28,23 +30,18 @@ function DataTable({
     usePagination
   );
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    prepareRow,
-    page
-  } = tableInstance;
-
+  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, page } =
+    tableInstance;
 
   return (
     <TableContainer sx={{ boxShadow: "none" }}>
       <Table {...getTableProps()}>
-        <MDBox component="thead">
-          {headerGroups.map((headerGroup) => (
-            <TableRow {...headerGroup.getHeaderGroupProps()}>
+        <Box component="thead">
+          {headerGroups.map((headerGroup, key) => (
+            <TableRow key={key} {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <MDBox
+                <Box
+                  key={key}
                   component="th"
                   width="auto"
                   py={1.5}
@@ -53,7 +50,7 @@ function DataTable({
                     borderBottom: `${borderWidth[1]} solid ${light.main}`,
                   })}
                 >
-                  <MDBox
+                  <Box
                     position="relative"
                     textAlign="center"
                     color="secondary"
@@ -67,19 +64,20 @@ function DataTable({
                     })}
                   >
                     {column.render("Header")}
-                  </MDBox>
-                </MDBox>
+                  </Box>
+                </Box>
               ))}
             </TableRow>
           ))}
-        </MDBox>
+        </Box>
         <TableBody {...getTableBodyProps()}>
           {page.map((row, key) => {
             prepareRow(row);
             return (
-              <TableRow {...row.getRowProps()}>
+              <TableRow key={key} {...row.getRowProps()}>
                 {row.cells.map((cell) => (
-                  <MDBox
+                  <Box
+                    key={key}
                     component="td"
                     textAlign="center"
                     py={1.5}
@@ -88,15 +86,15 @@ function DataTable({
                       borderBottom: `solid ${light.main}`,
                     })}
                   >
-                    <MDBox
+                    <Box
                       display="inline-block"
                       width="max-content"
                       color="text"
                       sx={{ verticalAlign: "middle" }}
                     >
                       {cell.render("Cell")}
-                    </MDBox>
-                  </MDBox>
+                    </Box>
+                  </Box>
                 ))}
               </TableRow>
             );

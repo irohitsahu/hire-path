@@ -1,28 +1,9 @@
-// react-router-dom components
-import { Link } from "react-router-dom";
-
 import { useState } from "react";
 
 // @mui material components
-import Card from "@mui/material/Card";
-import Checkbox from "@mui/material/Checkbox";
+import { Card, Box, Typography, Button, Input } from "@mui/material";
 
-// Material Dashboard 2 React components
-import MDBox from "../../components/MDBox";
-import MDTypography from "../../components/MDTypography";
-import MDInput from "../../components/MDInput";
-import MDButton from "../../components/MDButton";
-
-// Images
-import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../page/Layout/layout";
-
-import Axios from "axios";
-import CandidateEdu from "./CandidateEdu";
-import { Navigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-
-import Cookies from "js-cookie";
+import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 
 //Basic Details
 function CandidateBasic() {
@@ -51,28 +32,12 @@ function CandidateBasic() {
       passingYear,
       aggregate,
     } = candidate;
-
-    const cookieUserid = Cookies.get("Userid");
-    alert(cookieUserid);
-    if (cookieUserid) {
-      Axios.put(
-        `http://localhost:7000/api/candidates/${cookieUserid}/basicdetail/`,
-        candidate
-      )
-        .then((res) => {
-          console.log(res);
-          alert("Basic Details Saved");
-        })
-        .catch((err) => console.log(err));
-    } else {
-      alert("Some Error Occured.");
-    }
   };
 
   return (
-    <BasicLayout image={bgImage}>
+    <DashboardLayout>
       <Card>
-        <MDBox
+        <Box
           variant="gradient"
           bgColor="info"
           borderRadius="lg"
@@ -83,15 +48,15 @@ function CandidateBasic() {
           mb={1}
           textAlign="center"
         >
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+          <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
             Fill Candidate Basic Details
-          </MDTypography>
-        </MDBox>
+          </Typography>
+        </Box>
 
-        <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
-            <MDBox mb={2}>
-              <MDInput
+        <Box pt={4} pb={3} px={3}>
+          <Box component="form" role="form">
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="dateOfBirth"
                 value={candidate.dateOfBirth}
@@ -99,10 +64,10 @@ function CandidateBasic() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="address"
                 value={candidate.address}
@@ -111,10 +76,10 @@ function CandidateBasic() {
                 multiline
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="gender"
                 value={candidate.gender}
@@ -122,10 +87,10 @@ function CandidateBasic() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="number"
                 name="mobileNo"
                 value={candidate.mobileNo}
@@ -133,10 +98,10 @@ function CandidateBasic() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="bio"
                 value={candidate.bio}
@@ -144,33 +109,28 @@ function CandidateBasic() {
                 fullWidth
                 onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mt={4} mb={1}>
-              <MDButton
-                variant="gradient"
-                color="info"
-                fullWidth
-                onClick={save}
-              >
+            <Box mt={4} mb={1}>
+              <Button variant="gradient" color="info" fullWidth onClick={save}>
                 Save
-              </MDButton>
-            </MDBox>
+              </Button>
+            </Box>
 
-            <MDBox mt={4} mb={1}>
-              <MDButton
+            <Box mt={4} mb={1}>
+              <Button
                 variant="gradient"
                 color="success"
                 fullWidth
                 href="/candidate-edu"
               >
                 Candidate Education
-              </MDButton>
-            </MDBox>
-          </MDBox>
-        </MDBox>
+              </Button>
+            </Box>
+          </Box>
+        </Box>
       </Card>
-    </BasicLayout>
+    </DashboardLayout>
   );
 }
 

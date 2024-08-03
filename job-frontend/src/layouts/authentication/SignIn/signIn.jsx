@@ -1,19 +1,24 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
-// react-router-dom components
-import { Link } from "react-router-dom";
+import {
+  Card,
+  Switch,
+  Box,
+  Button,
+  Typography,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
-// @mui material components
-import Card from "@mui/material/Card";
-import Switch from "@mui/material/Switch";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import GoogleIcon from "@mui/icons-material/Google";
 
-// Material Dashboard 2 React components
 import InputField from "src/components/InputFeild/inputField";
-import MDButton from "../../../components/MDButton";
 
-import { Container, FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import { TopInfoCard } from "./signIn-styles";
 
 function SignIn() {
@@ -22,12 +27,48 @@ function SignIn() {
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
-    <Container maxWidth="xs">
       <Card>
         <TopInfoCard mx={2} mt={-3} p={2} mb={1} textAlign="center">
           <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
             Sign in
           </Typography>
+          <Grid2
+            container
+            spacing={3}
+            justifyContent="center"
+            sx={{ mt: 1, mb: 2 }}
+          >
+            <Grid2 xs={2}>
+              <Typography
+                component={Link}
+                href="#"
+                variant="body1"
+                color="white"
+              >
+                <FacebookIcon color="inherit" />
+              </Typography>
+            </Grid2>
+            <Grid2 xs={2}>
+              <Typography
+                component={Link}
+                href="#"
+                variant="body1"
+                color="white"
+              >
+                <GitHubIcon color="inherit" />
+              </Typography>
+            </Grid2>
+            <Grid2 xs={2}>
+              <Typography
+                component={Link}
+                href="#"
+                variant="body1"
+                color="white"
+              >
+                <GoogleIcon color="inherit" />
+              </Typography>
+            </Grid2>
+          </Grid2>
         </TopInfoCard>
 
         <Box pt={4} pb={3} px={3}>
@@ -77,9 +118,9 @@ function SignIn() {
             </Box>
 
             <Box mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
+              <Button variant="gradient" color="info" fullWidth>
                 Login
-              </MDButton>
+              </Button>
             </Box>
           </Box>
 
@@ -111,7 +152,6 @@ function SignIn() {
           </Box>
         </Box>
       </Card>
-    </Container>
   );
 }
 

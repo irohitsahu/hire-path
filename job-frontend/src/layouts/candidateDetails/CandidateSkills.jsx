@@ -1,21 +1,11 @@
-// react-router-dom components
-import { Link } from "react-router-dom";
-
 import { useState } from "react";
 
 // @mui material components
-import Card from "@mui/material/Card";
-import Checkbox from "@mui/material/Checkbox";
-
-// Material Dashboard 2 React components
-import MDBox from "../../components/MDBox";
-import MDTypography from "../../components/MDTypography";
-import MDInput from "../../components/MDInput";
-import MDButton from "../../components/MDButton";
+import { Card, Box, Typography, Input, Button } from "@mui/material";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
-import BasicLayout from "../page/Layout/layout";
+import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 
 import Axios from "axios";
 
@@ -48,9 +38,9 @@ function CandidateSkills() {
   };
 
   return (
-    <BasicLayout image={bgImage}>
+    <DashboardLayout>
       <Card>
-        <MDBox
+        <Box
           variant="gradient"
           bgColor="info"
           borderRadius="lg"
@@ -61,15 +51,15 @@ function CandidateSkills() {
           mb={1}
           textAlign="center"
         >
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+          <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
             Enter Your Skills
-          </MDTypography>
-        </MDBox>
+          </Typography>
+        </Box>
 
-        <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
-            <MDBox mb={2}>
-              <MDInput
+        <Box pt={4} pb={3} px={3}>
+          <Box component="form" role="form">
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="languages"
                 value={languages}
@@ -78,10 +68,10 @@ function CandidateSkills() {
                 onChange={(event) => setLanguages(event.target.value)}
                 //onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="programmingLanguages"
                 value={programmingLanguages}
@@ -92,10 +82,10 @@ function CandidateSkills() {
                 }
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="tools"
                 value={tools}
@@ -104,32 +94,27 @@ function CandidateSkills() {
                 onChange={(event) => setTools(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mt={4} mb={1}>
-              <MDButton
-                variant="gradient"
-                color="info"
-                fullWidth
-                onClick={save}
-              >
+            <Box mt={4} mb={1}>
+              <Button variant="gradient" color="info" fullWidth onClick={save}>
                 Save
-              </MDButton>
-            </MDBox>
-            <MDBox mt={4} mb={1}>
-              <MDButton
+              </Button>
+            </Box>
+            <Box mt={4} mb={1}>
+              <Button
                 variant="gradient"
                 color="success"
                 fullWidth
                 href="/dashboard"
               >
                 Dashboard
-              </MDButton>
-            </MDBox>
-          </MDBox>
-        </MDBox>
+              </Button>
+            </Box>
+          </Box>
+        </Box>
       </Card>
-    </BasicLayout>
+    </DashboardLayout>
   );
 }
 

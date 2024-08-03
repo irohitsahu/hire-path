@@ -1,20 +1,8 @@
-
-// react-routers components
-import { Link } from "react-router-dom";
-
 // prop-types is library for typechecking of props
 import PropTypes from "prop-types";
 
 // @mui material components
-import Card from "@mui/material/Card";
-import Divider from "@mui/material/Divider";
-import Tooltip from "@mui/material/Tooltip";
-import Icon from "@mui/material/Icon";
-
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
-
+import { Card, Box, Typography } from "@mui/material";
 
 function ProfileInfoCard({ title, description, info, shadow }) {
   const labels = [];
@@ -24,7 +12,10 @@ function ProfileInfoCard({ title, description, info, shadow }) {
   Object.keys(info).forEach((el) => {
     if (el.match(/[A-Z\s]+/)) {
       const uppercaseLetter = Array.from(el).find((i) => i.match(/[A-Z]+/));
-      const newElement = el.replace(uppercaseLetter, ` ${uppercaseLetter.toLowerCase()}`);
+      const newElement = el.replace(
+        uppercaseLetter,
+        ` ${uppercaseLetter.toLowerCase()}`
+      );
 
       labels.push(newElement);
     } else {
@@ -37,36 +28,38 @@ function ProfileInfoCard({ title, description, info, shadow }) {
 
   // Render the card info items
   const renderItems = labels.map((label, key) => (
-    <MDBox key={label} display="flex" py={1} pr={2}>
-      <MDTypography variant="button" fontWeight="bold" textTransform="capitalize">
+    <Box key={label} display="flex" py={1} pr={2}>
+      <Typography variant="button" fontWeight="bold" textTransform="capitalize">
         {label}: &nbsp;
-      </MDTypography>
-      <MDTypography variant="button" fontWeight="regular" color="text">
+      </Typography>
+      <Typography variant="button" fontWeight="regular" color="text">
         &nbsp;{values[key]}
-      </MDTypography>
-    </MDBox>
+      </Typography>
+    </Box>
   ));
 
   return (
     <Card sx={{ height: "100%", boxShadow: !shadow && "none" }}>
-      <MDBox p={2}>
-        <MDBox mb={0} lineHeight={1}>
-          <MDTypography variant="button" color="text" fontWeight="light">
+      <Box p={2}>
+        <Box mb={0} lineHeight={1}>
+          <Typography variant="button" color="text" fontWeight="light">
             {description}
-          </MDTypography>
-        </MDBox>
-        <MDBox display="flex" alignItems="center" pt={2} px={2}>
-          <MDTypography variant="h4" fontWeight="medium" textTransform="capitalize">
+          </Typography>
+        </Box>
+        <Box display="flex" alignItems="center" pt={2} px={2}>
+          <Typography
+            variant="h4"
+            fontWeight="medium"
+            textTransform="capitalize"
+          >
             {title}
-          </MDTypography>
-        </MDBox>
-        <MDBox opacity={0.3}>
-          {/* <Divider /> */}
-        </MDBox>
-        <MDBox alignItems="center" pt={2} px={2}>
+          </Typography>
+        </Box>
+        <Box opacity={0.3}>{/* <Divider /> */}</Box>
+        <Box alignItems="center" pt={2} px={2}>
           {renderItems}
-        </MDBox>
-      </MDBox>
+        </Box>
+      </Box>
     </Card>
   );
 }

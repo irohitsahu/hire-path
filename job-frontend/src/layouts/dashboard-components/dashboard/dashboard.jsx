@@ -1,60 +1,37 @@
 // @mui material components
 import Grid from "@mui/material/Grid";
+import { Box } from "@mui/material";
 
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-
-// Material Dashboard 2 React example components
-import DashboardLayout from "./dashboardLayout";
+// Material Dashboard 2 React example components";
 import DashboardNavbar from "./dashboardNavbar";
-import Footer from "./dashboardFooter";
-import ComplexStatisticsCard from "./complexStatisticsCard";
+import ComplexStatisticsCard from "../../../components/CardBox/complexStatisticsCard";
 
 // Dashboard components
 import JobList from "./jobList";
-import { useEffect, useState } from "react";
-
-import Axios from "axios";
-
-
 
 function Dashboard() {
-
-  const [totalJobs, setTotalJobs] = useState('');
-
-  useEffect(() => {
-    Axios.get(
-      "http://localhost:7000/api/candidates/jobs/getalljobsno",
-      { withCredentials: true }
-    )
-      .then((res) => {
-        console.log(res.data.data);
-        setTotalJobs(res.data.data);
-      })
-  })
-
   return (
-    <DashboardLayout>
+    <>
       <DashboardNavbar />
-      <MDBox py={3}>
+      <Box py={3}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={6}>
-            <MDBox mb={1.5}>
+            <Box mb={1.5}>
               <ComplexStatisticsCard
                 color="dark"
                 icon="weekend"
                 title="Total Jobs"
-                count={totalJobs}
+                count={26}
                 percentage={{
                   color: "success",
                   amount: "+55%",
                   label: "than lask week",
                 }}
               />
-            </MDBox>
+            </Box>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
-            <MDBox mb={1.5}>
+            <Box mb={1.5}>
               <ComplexStatisticsCard
                 icon="leaderboard"
                 title="Today's Users"
@@ -65,23 +42,20 @@ function Dashboard() {
                   label: "than last month",
                 }}
               />
-            </MDBox>
+            </Box>
           </Grid>
-
         </Grid>
-        <MDBox mt={4.5}>
+        <Box mt={4.5}>
           <Grid container spacing={3}>
-
             <Grid item xs={12} md={6} lg={12}>
-              <MDBox mb={3}>
+              <Box mb={3}>
                 <JobList />
-              </MDBox>
+              </Box>
             </Grid>
           </Grid>
-        </MDBox>
-      </MDBox>
-      <Footer />
-    </DashboardLayout>
+        </Box>
+      </Box>
+    </>
   );
 }
 

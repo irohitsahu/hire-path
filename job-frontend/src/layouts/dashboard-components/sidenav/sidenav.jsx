@@ -1,80 +1,135 @@
-// react-router-dom components
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 import { useLocation, NavLink } from "react-router-dom";
+import {
+  List,
+  Divider,
+  Box,
+  Typography,
+  ListItem,
+  ListItemAvatar,
+  Avatar,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
-// @mui material components
-import List from "@mui/material/List";
-import Link from "@mui/material/Link";
+import {
+  CollapseText,
+  SideNavbarDrawer,
+  SideNavbarLogoLabel,
+} from "./sidenav-styles";
 
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
+import { useMaterialUIController, setMiniSidenav } from "context";
+import { CandidateSidebar, CompanySidebar } from "./sidenav-data";
 
-// Material Dashboard 2 React example components
-import SidenavLayout from "./SidenavLayout";
-
-import { Drawer } from "@mui/material";
-import typography from "../../../assets/theme/base/typography";
-import MDButton from "../../../components/MDButton";
-
-
-function Sidenav({ brand, brandName, routes, }) {
-  const { size } = typography;
+function Sidenav() {
+  const [controller, dispatch] = useMaterialUIController();
+  const { miniSidenav, darkMode, userType } = controller;
   const location = useLocation();
+  const collapseName = location.pathname.replace("/", "");
+
+  console.log(collapseName);
 
   let textColor = "white";
 
+  const closeSidenav = () => setMiniSidenav(dispatch, true);
 
-  // Render all the routes from the routes.js (All the visible items on the Sidenav)
-  const renderRoutes = routes.map(({ type, name, icon, noCollapse, key, href, route }) => {
-    let returnValue;
-
-    if (type === "collapse") {
-      returnValue = href ? (
-        <Link
-          href={href}
-          key={key}
-          target="_blank"
-          rel="noreferrer"
-          sx={{
-            textDecoration: "none"
-          }}
-        >
-          <SidenavLayout
-            name={name}
-            icon={icon}
-            active={key}
-            noCollapse={noCollapse}
-          />
-        </Link>
-      ) : (
-        <NavLink key={key} to={route}>
-          <SidenavLayout name={name} icon={icon} active={key} />
-        </NavLink>
-      );
+  // it is controling the sidenav close when screen is small
+  useEffect(() => {
+    function handleMiniSidenav() {
+      setMiniSidenav(dispatch, window.innerWidth < 1200);
     }
-    return returnValue;
-  });
+    window.addEventListener("resize", handleMiniSidenav);
+    handleMiniSidenav();
+    return () => window.removeEventListener("resize", handleMiniSidenav);
+  }, [dispatch, location]);
+
+  const renderRoutes = () => {
+    const routes = userType === "candidate" ? CandidateSidebar : CompanySidebar;
+
+    return routes.map((route, index) => {
+      if (route.type === "collapse") {
+        return (
+          <NavLink key={index} to={route.to}>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>{route.icon}</Avatar>
+              </ListItemAvatar>
+              <CollapseText
+                ownerState={{
+                  active: route.to === collapseName,
+                }}
+              >
+                {route.title}
+              </CollapseText>
+            </ListItem>
+          </NavLink>
+        );
+      } else if (route.type === "title") {
+        return (
+          <Typography
+            key={route.key}
+            color={textColor}
+            display="block"
+            variant="caption"
+            fontWeight="bold"
+            textTransform="uppercase"
+            pl={3}
+            mt={2}
+            mb={1}
+            ml={1}
+          >
+            {route.title}
+          </Typography>
+        );
+      } else if (route.type === "divider") {
+        return <Divider key={route.key} />;
+      } else {
+        return null;
+      }
+    });
+  };
 
   return (
-    <Drawer
+    <SideNavbarDrawer
       variant="permanent"
-      sx={{
-        "& .MuiDrawer-paper": {
-          color: 'white',
-          background: 'linear-gradient(to left top, #000, #0073e5)',
-          borderRadius: "30px",
-        },
-      }}
+      ownerState={{ miniSidenav, darkMode }}
     >
-      <MDBox pt={10} pb={25} px={2} textAlign="center">
-        <MDBox component={NavLink} to="/" display="flex" alignItems="center" justifyContent="center" flexWrap="wrap" color={"text"} >
-          {brand && <MDBox component="img" src={brand} alt="Brand" width="2rem" />}
-        </MDBox>
-      </MDBox>
-      <List>{renderRoutes}</List>
-    </Drawer>
+      <Box pt={3} pb={1} px={4} textAlign="center">
+        <Box
+          display={{ xs: "block", xl: "none" }}
+          position="absolute"
+          top={0}
+          right={0}
+          p={1.625}
+          onClick={closeSidenav}
+          sx={{ cursor: "pointer" }}
+        >
+          <CloseIcon />
+        </Box>
+        <Box
+          component={NavLink}
+          to="/"
+          display="flex"
+          alignItems="center"
+          sx={{ textDecoration: "none", color: "primary.main" }}
+        >
+          {/* <Box component="img" src="" alt="hirepath" width="2rem" /> */}
+          <SideNavbarLogoLabel ownerState={{ darkMode }}>
+            <Typography
+              component="h1"
+              variant="button"
+              fontWeight="medium"
+              color={textColor}
+            >
+              HirePath
+            </Typography>
+          </SideNavbarLogoLabel>
+        </Box>
+      </Box>
+      <Divider variant="middle" sx={{ backgroundColor: "secondary.main" }} />
+      <List>{renderRoutes()}</List>
+    </SideNavbarDrawer>
   );
 }
-
 
 export default Sidenav;

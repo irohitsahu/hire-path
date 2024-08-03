@@ -1,17 +1,7 @@
-// react-router-dom components
-import { Link } from "react-router-dom";
-
 import { useState } from "react";
 
 // @mui material components
 import Card from "@mui/material/Card";
-import Checkbox from "@mui/material/Checkbox";
-
-// Material Dashboard 2 React components
-import MDBox from "../../components/MDBox";
-import MDTypography from "../../components/MDTypography";
-import MDInput from "../../components/MDInput";
-import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
@@ -19,6 +9,7 @@ import BasicLayout from "../page/Layout/layout";
 
 import Axios from "axios";
 import Cookies from "js-cookie";
+import { Box, Button, Input, Typography } from "@mui/material";
 
 // JOB POSTING
 function CompanyJobPost() {
@@ -59,7 +50,7 @@ function CompanyJobPost() {
   return (
     <BasicLayout image={bgImage}>
       <Card>
-        <MDBox
+        <Box
           variant="gradient"
           bgColor="info"
           borderRadius="lg"
@@ -70,15 +61,15 @@ function CompanyJobPost() {
           mb={1}
           textAlign="center"
         >
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+          <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
             Post Job
-          </MDTypography>
-        </MDBox>
+          </Typography>
+        </Box>
 
-        <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
-            <MDBox mb={2}>
-              <MDInput
+        <Box pt={4} pb={3} px={3}>
+          <Box component="form" role="form">
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="positionName"
                 value={positionName}
@@ -87,10 +78,10 @@ function CompanyJobPost() {
                 onChange={(event) => setPositionName(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="jobDescription"
                 value={jobDescription}
@@ -99,10 +90,10 @@ function CompanyJobPost() {
                 onChange={(event) => setJobDescription(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="number"
                 name="experienceNeeded"
                 value={experienceNeeded}
@@ -111,10 +102,10 @@ function CompanyJobPost() {
                 onChange={(event) => setExperienceNeeded(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="typeOfJob"
                 value={typeOfJob}
@@ -123,10 +114,10 @@ function CompanyJobPost() {
                 onChange={(event) => setTypeOfJob(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="modeOfJob"
                 value={modeOfJob}
@@ -135,10 +126,10 @@ function CompanyJobPost() {
                 onChange={(event) => setModeOfJob(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="responsibilities"
                 value={responsibilities}
@@ -147,10 +138,10 @@ function CompanyJobPost() {
                 onChange={(event) => setResponsibilities(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="programmingLanguages"
                 value={programmingLanguages}
@@ -161,10 +152,10 @@ function CompanyJobPost() {
                 }
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="programmingLanguages"
                 value={tool}
@@ -173,10 +164,10 @@ function CompanyJobPost() {
                 onChange={(event) => setTool(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="text"
                 name="qualification"
                 value={qualification}
@@ -185,31 +176,31 @@ function CompanyJobPost() {
                 onChange={(event) => setQualification(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDButton
+            <Box mb={2}>
+              <Button
                 variant="gradient"
                 color="info"
                 fullWidth
                 onClick={save}
               >
                 Save and Post Job
-              </MDButton>
-            </MDBox>
+              </Button>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDButton
+            <Box mb={2}>
+              <Button
                 variant="gradient"
                 color="success"
                 fullWidth
                 href="/dashboard"
               >
                 Dashboard
-              </MDButton>
-            </MDBox>
-          </MDBox>
-        </MDBox>
+              </Button>
+            </Box>
+          </Box>
+        </Box>
       </Card>
     </BasicLayout>
   );

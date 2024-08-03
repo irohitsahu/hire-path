@@ -2,27 +2,21 @@
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
 
 // Material Dashboard 2 React example components
-import DashboardLayout from "../dashboard/dashboardLayout";
 import DashboardNavbar from "../dashboard/dashboardNavbar";
-import Footer from "../dashboard/dashboardFooter";
 import DataTable from "./tableData";
-
+import { Box, Typography } from "@mui/material";
 
 function Tables() {
-
   return (
-    <DashboardLayout>
+    <>
       <DashboardNavbar />
-      <MDBox pt={6} pb={3}>
+      <Box pt={6} pb={3}>
         <Grid container spacing={6}>
           <Grid item xs={12}>
             <Card>
-              <MDBox
+              <Box
                 mx={2}
                 mt={-3}
                 py={3}
@@ -32,67 +26,161 @@ function Tables() {
                 borderRadius="lg"
                 coloredShadow="info"
               >
-                <MDTypography variant="h6" color="white">
+                <Typography variant="h6" color="white">
                   Applied Job List
-                </MDTypography>
-              </MDBox>
-              <MDBox pt={3}>
+                </Typography>
+              </Box>
+              <Box pt={3}>
                 <DataTable
                   table={{
                     columns: [
-                      { Header: "Company Name", accessor: "companyName", width: "45%", align: "left" },
-                      { Header: "Job Description", accessor: "jobDescription", width: "10%", align: "left" },
-                      { Header: "Type Of Job", accessor: "typeOfJob", align: "center" },
-                      { Header: "Mode Of Job", accessor: "modeOfJob", align: "center" },
-                      { Header: "Responsibility", accessor: "responsibility", align: "center" },
-                      { Header: "Requirment", accessor: "requirment", align: "center" },
+                      {
+                        Header: "Company Name",
+                        accessor: "companyName",
+                        width: "45%",
+                        align: "left",
+                      },
+                      {
+                        Header: "Job Description",
+                        accessor: "jobDescription",
+                        width: "10%",
+                        align: "left",
+                      },
+                      {
+                        Header: "Type Of Job",
+                        accessor: "typeOfJob",
+                        align: "center",
+                      },
+                      {
+                        Header: "Mode Of Job",
+                        accessor: "modeOfJob",
+                        align: "center",
+                      },
+                      {
+                        Header: "Responsibility",
+                        accessor: "responsibility",
+                        align: "center",
+                      },
+                      {
+                        Header: "Requirment",
+                        accessor: "requirment",
+                        align: "center",
+                      },
                     ],
 
                     rows: [
                       {
-                        companyName: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                          DEF COMPANY
-                        </MDTypography>),
-                        jobDescription: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                          CDE SSKIL
-                        </MDTypography>),
+                        companyName: (
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
+                            DEF COMPANY
+                          </Typography>
+                        ),
+                        jobDescription: (
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
+                            CDE SSKIL
+                          </Typography>
+                        ),
                         typeOfJob: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             23/04/18
-                          </MDTypography>
+                          </Typography>
                         ),
                         modeOfJob: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             Edit
-                          </MDTypography>
+                          </Typography>
                         ),
                         responsibility: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             23/04/18
-                          </MDTypography>
+                          </Typography>
                         ),
                         requirment: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             23/04/18
-                          </MDTypography>
+                          </Typography>
                         ),
                       },
                       {
-                        companyName: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                          ABC COMPANY
-                        </MDTypography>),
-                        jobName: (<MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                          CDE SSKIL
-                        </MDTypography>),
+                        companyName: (
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
+                            ABC COMPANY
+                          </Typography>
+                        ),
+                        jobName: (
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
+                            CDE SSKIL
+                          </Typography>
+                        ),
                         status: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             23/04/18
-                          </MDTypography>
+                          </Typography>
                         ),
                         appliedDate: (
-                          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+                          <Typography
+                            component="a"
+                            href="#"
+                            variant="caption"
+                            color="text"
+                            fontWeight="medium"
+                          >
                             Edit
-                          </MDTypography>
+                          </Typography>
                         ),
                       },
                     ],
@@ -102,13 +190,12 @@ function Tables() {
                   showTotalEntries={false}
                   noEndBorder
                 />
-              </MDBox>
+              </Box>
             </Card>
           </Grid>
         </Grid>
-      </MDBox>
-      <Footer />
-    </DashboardLayout>
+      </Box>
+    </>
   );
 }
 

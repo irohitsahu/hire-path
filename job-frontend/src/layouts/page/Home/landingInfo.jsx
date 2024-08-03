@@ -8,36 +8,54 @@ import { HomeWrapper } from "./landingInfo-styles";
 
 function LandingPageInfo() {
   return (
-    <HomeWrapper>
-      <Typography variant="h2" color="white" textAlign={"center"}>
-        Search Your Dream Job, Right Here, Right Now
-      </Typography>
-
-      <SearchBar />
-
-      <Button component={Link} to="/authentication/sign-up">
-        create account
-      </Button>
-
-      <Typography variant="h6" color="white">
-        Find us on
-      </Typography>
-
-      <Box display="flex" justifyContent="center" alignItems="center">
-        <Typography component="a" variant="body1" color="white" href="#" mr={3}>
-          <Facebook />
+      <HomeWrapper>
+        <Typography variant="h2" color="white" textAlign={"center"}>
+          Search Your Dream Job, Right Here, Right Now
         </Typography>
-        <Typography component="a" variant="body1" color="white" href="#" mr={3}>
-          <Instagram />
+
+        <SearchBar />
+
+        <Button component={Link} to="/authentication/sign-up">
+          create account
+        </Button>
+
+        <Typography variant="h6" color="white">
+          Find us on
         </Typography>
-        <Typography component="a" variant="body1" color="white" href="#" mr={3}>
-          <Twitter />
-        </Typography>
-        <Typography component="a" variant="body1" color="white" href="#">
-          <GitHub />
-        </Typography>
-      </Box>
-    </HomeWrapper>
+
+        <Box display="flex" justifyContent="center" alignItems="center">
+          <Typography
+            component="a"
+            variant="body1"
+            color="white"
+            href="#"
+            mr={3}
+          >
+            <Facebook />
+          </Typography>
+          <Typography
+            component="a"
+            variant="body1"
+            color="white"
+            href="#"
+            mr={3}
+          >
+            <Instagram />
+          </Typography>
+          <Typography
+            component="a"
+            variant="body1"
+            color="white"
+            href="#"
+            mr={3}
+          >
+            <Twitter />
+          </Typography>
+          <Typography component="a" variant="body1" color="white" href="#">
+            <GitHub />
+          </Typography>
+        </Box>
+      </HomeWrapper>
   );
 }
 

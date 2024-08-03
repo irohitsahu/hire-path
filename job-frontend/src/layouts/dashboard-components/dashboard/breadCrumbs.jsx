@@ -2,30 +2,27 @@
 import { Link } from "react-router-dom";
 
 // @mui material components
-import { Breadcrumbs as MuiBreadcrumbs } from "@mui/material";
+import { Box, Breadcrumbs as MuiBreadcrumbs, Typography } from "@mui/material";
 import Icon from "@mui/material/Icon";
 
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
 
 function Breadcrumbs({ icon, title }) {
 
   return (
-    <MDBox textAlign="right" mr={{ xs: 0, xl: 12 }}>
+    <Box textAlign="right" mr={{ xs: 0, xl: 12 }}>
       <MuiBreadcrumbs>
         <Link to="/">
-          <MDTypography
+          <Typography
             component="span"
             variant="h3"
             color="dark"
             opacity="0.5"
           >
             <Icon>{icon}</Icon>
-          </MDTypography>
+          </Typography>
         </Link>
       </MuiBreadcrumbs>
-      <MDTypography
+      <Typography
         fontWeight="bold"
         textTransform="capitalize"
         variant="h3"
@@ -33,8 +30,8 @@ function Breadcrumbs({ icon, title }) {
 
       >
         {title.replace("-", " ")}
-      </MDTypography>
-    </MDBox>
+      </Typography>
+    </Box>
   );
 }
 
