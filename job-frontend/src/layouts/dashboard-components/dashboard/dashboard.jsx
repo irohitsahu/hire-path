@@ -8,11 +8,10 @@ import ComplexStatisticsCard from "../../../components/CardBox/complexStatistics
 
 // Dashboard components
 import JobList from "./jobList";
-import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 
 function Dashboard() {
   return (
-    <DashboardLayout>
+    <>
       <DashboardNavbar />
       <Box py={3}>
         <Grid container spacing={3}>
@@ -56,7 +55,7 @@ function Dashboard() {
           </Grid>
         </Box>
       </Box>
-    </DashboardLayout>
+    </>
   );
 }
 

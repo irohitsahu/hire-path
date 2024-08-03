@@ -20,7 +20,6 @@ import GoogleIcon from "@mui/icons-material/Google";
 import InputField from "src/components/InputFeild/inputField";
 
 import { TopInfoCard } from "./signIn-styles";
-import PageLayout from "layouts/page/LayoutType/pageLayout";
 
 function SignIn() {
   const [rememberMe, setRememberMe] = useState(false);
@@ -28,7 +27,6 @@ function SignIn() {
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
-    <PageLayout>
       <Card>
         <TopInfoCard mx={2} mt={-3} p={2} mb={1} textAlign="center">
           <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
@@ -154,7 +152,6 @@ function SignIn() {
           </Box>
         </Box>
       </Card>
-    </PageLayout>
   );
 }
 

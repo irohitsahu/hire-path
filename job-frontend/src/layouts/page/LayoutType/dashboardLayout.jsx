@@ -1,10 +1,9 @@
-import PropTypes from "prop-types";
 
 import { useEffect } from "react";
 import { setLayout, useMaterialUIController } from "context";
-import { useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
-function DashboardLayout({ children }) {
+function DashboardLayout() {
   const [, dispatch] = useMaterialUIController();
   const pathname = useLocation();
 
@@ -12,11 +11,8 @@ function DashboardLayout({ children }) {
     setLayout(dispatch, "dashboard");
   }, [pathname]);
 
-  return children;
+  return <Outlet />;
 }
 
 export default DashboardLayout;
 
-DashboardLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-};

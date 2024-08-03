@@ -1,17 +1,8 @@
-// react-router-dom components
-import { Link } from "react-router-dom";
-
 import { useState } from "react";
 
 // @mui material components
 import Card from "@mui/material/Card";
-import Checkbox from "@mui/material/Checkbox";
 
-// Material Dashboard 2 React components
-import MDBox from "../../components/MDBox";
-import MDTypography from "../../components/MDTypography";
-import MDInput from "../../components/MDInput";
-import MDButton from "../../components/MDButton";
 
 // Images
 import bgImage from "../../assets/images/bg-sign-in-basic.jpeg";
@@ -20,6 +11,7 @@ import BasicLayout from "../page/Layout/layout";
 import Axios from "axios";
 
 import Cookies from "js-cookie";
+import { Box, Button, Input, Typography } from "@mui/material";
 
 // HR Details
 function CompanyHr() {
@@ -50,7 +42,7 @@ function CompanyHr() {
   return (
     <BasicLayout image={bgImage}>
       <Card>
-        <MDBox
+        <Box
           variant="gradient"
           bgColor="info"
           borderRadius="lg"
@@ -61,15 +53,15 @@ function CompanyHr() {
           mb={1}
           textAlign="center"
         >
-          <MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+          <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
             Fill HR Details Details
-          </MDTypography>
-        </MDBox>
+          </Typography>
+        </Box>
 
-        <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
-            <MDBox mb={2}>
-              <MDInput
+        <Box pt={4} pb={3} px={3}>
+          <Box component="form" role="form">
+            <Box mb={2}>
+              <Input
                 type="email"
                 name="email"
                 value={email}
@@ -78,10 +70,10 @@ function CompanyHr() {
                 onChange={(event) => setEmail(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mb={2}>
-              <MDInput
+            <Box mb={2}>
+              <Input
                 type="number"
                 name="mobileNo"
                 value={mobileNo}
@@ -90,31 +82,31 @@ function CompanyHr() {
                 onChange={(event) => setMobile(event.target.value)}
                 // onChange={handleChange}
               />
-            </MDBox>
+            </Box>
 
-            <MDBox mt={4} mb={1}>
-              <MDButton
+            <Box mt={4} mb={1}>
+              <Button
                 variant="gradient"
                 color="info"
                 fullWidth
                 onClick={save}
               >
                 Save
-              </MDButton>
-            </MDBox>
+              </Button>
+            </Box>
 
-            <MDBox mt={4} mb={1}>
-              <MDButton
+            <Box mt={4} mb={1}>
+              <Button
                 variant="gradient"
                 color="success"
                 fullWidth
                 href="/company-job-post"
               >
                 post
-              </MDButton>
-            </MDBox>
-          </MDBox>
-        </MDBox>
+              </Button>
+            </Box>
+          </Box>
+        </Box>
       </Card>
     </BasicLayout>
   );

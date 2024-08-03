@@ -5,12 +5,9 @@ import { useLocation, Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import Icon from "@mui/material/Icon";
 
-// Material Dashboard 2 React components
-import MDInput from "../../../components/MDInput";
-
 // Material Dashboard 2 React example components
 import Breadcrumbs from "./breadCrumbs";
-import { Container, Box } from "@mui/material";
+import { Container, Box, Input } from "@mui/material";
 
 function DashboardNavbar() {
   const route = useLocation().pathname.split("/").slice(1);
@@ -43,7 +40,7 @@ function DashboardNavbar() {
         <Box xl={12} p={1} alignItems="center">
           <Box>
             <Box>
-              <MDInput label="Search here" />
+              <Input label="Search here" />
             </Box>
 
             <Box textAlign="right">

@@ -16,9 +16,8 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
+import { Box } from "@mui/material";
 
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
 
 function DataTable({ table }) {
   const columns = useMemo(() => table.columns, [table]);
@@ -37,11 +36,11 @@ function DataTable({ table }) {
   return (
     <TableContainer sx={{ boxShadow: "none" }}>
       <Table {...getTableProps()}>
-        <MDBox component="thead">
+        <Box component="thead">
           {headerGroups.map((headerGroup, key) => (
             <TableRow key={key} {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <MDBox
+                <Box
                   key={key}
                   component="th"
                   width="auto"
@@ -51,7 +50,7 @@ function DataTable({ table }) {
                     borderBottom: `${borderWidth[1]} solid ${light.main}`,
                   })}
                 >
-                  <MDBox
+                  <Box
                     position="relative"
                     textAlign="center"
                     color="secondary"
@@ -65,19 +64,19 @@ function DataTable({ table }) {
                     })}
                   >
                     {column.render("Header")}
-                  </MDBox>
-                </MDBox>
+                  </Box>
+                </Box>
               ))}
             </TableRow>
           ))}
-        </MDBox>
+        </Box>
         <TableBody {...getTableBodyProps()}>
           {page.map((row, key) => {
             prepareRow(row);
             return (
               <TableRow key={key} {...row.getRowProps()}>
                 {row.cells.map((cell) => (
-                  <MDBox
+                  <Box
                     key={key}
                     component="td"
                     textAlign="center"
@@ -87,15 +86,15 @@ function DataTable({ table }) {
                       borderBottom: `solid ${light.main}`,
                     })}
                   >
-                    <MDBox
+                    <Box
                       display="inline-block"
                       width="max-content"
                       color="text"
                       sx={{ verticalAlign: "middle" }}
                     >
                       {cell.render("Cell")}
-                    </MDBox>
-                  </MDBox>
+                    </Box>
+                  </Box>
                 ))}
               </TableRow>
             );

@@ -4,16 +4,9 @@ import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
-import MDAlert from "../../../components/MDAlert";
-import MDButton from "../../../components/MDButton";
-import MDSnackbar from "../../../components/MDSnackbar";
-
 // Material Dashboard 2 React example components
-import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 import DashboardNavbar from "../dashboard/dashboardNavbar";
+import { Alert, Box, Button, Snackbar, Typography } from "@mui/material";
 
 function Notifications() {
   const [successSB, setSuccessSB] = useState(false);
@@ -31,9 +24,9 @@ function Notifications() {
   const closeErrorSB = () => setErrorSB(false);
 
   const alertContent = (name) => (
-    <MDTypography variant="body2" color="white">
+    <Typography variant="body2" color="white">
       A simple {name} alert with{" "}
-      <MDTypography
+      <Typography
         component="a"
         href="#"
         variant="body2"
@@ -41,13 +34,13 @@ function Notifications() {
         color="white"
       >
         an example link
-      </MDTypography>
+      </Typography>
       . Give it a click if you like.
-    </MDTypography>
+    </Typography>
   );
 
   const renderSuccessSB = (
-    <MDSnackbar
+    <Snackbar
       color="success"
       icon="check"
       title="Material Dashboard"
@@ -61,7 +54,7 @@ function Notifications() {
   );
 
   const renderInfoSB = (
-    <MDSnackbar
+    <Snackbar
       icon="notifications"
       title="Material Dashboard"
       content="Hello, world! This is a notification message"
@@ -73,7 +66,7 @@ function Notifications() {
   );
 
   const renderWarningSB = (
-    <MDSnackbar
+    <Snackbar
       color="warning"
       icon="star"
       title="Material Dashboard"
@@ -87,7 +80,7 @@ function Notifications() {
   );
 
   const renderErrorSB = (
-    <MDSnackbar
+    <Snackbar
       color="error"
       icon="warning"
       title="Material Dashboard"
@@ -101,110 +94,110 @@ function Notifications() {
   );
 
   return (
-    <DashboardLayout>
+    <>
       <DashboardNavbar />
-      <MDBox mt={6} mb={3}>
+      <Box mt={6} mb={3}>
         <Grid container spacing={3} justifyContent="center">
           <Grid item xs={12} lg={8}>
             <Card>
-              <MDBox p={2}>
-                <MDTypography variant="h5">Alerts</MDTypography>
-              </MDBox>
-              <MDBox pt={2} px={2}>
-                <MDAlert color="primary" dismissible>
+              <Box p={2}>
+                <Typography variant="h5">Alerts</Typography>
+              </Box>
+              <Box pt={2} px={2}>
+                <Alert color="primary" dismissible>
                   {alertContent("primary")}
-                </MDAlert>
-                <MDAlert color="secondary" dismissible>
+                </Alert>
+                <Alert color="secondary" dismissible>
                   {alertContent("secondary")}
-                </MDAlert>
-                <MDAlert color="success" dismissible>
+                </Alert>
+                <Alert color="success" dismissible>
                   {alertContent("success")}
-                </MDAlert>
-                <MDAlert color="error" dismissible>
+                </Alert>
+                <Alert color="error" dismissible>
                   {alertContent("error")}
-                </MDAlert>
-                <MDAlert color="warning" dismissible>
+                </Alert>
+                <Alert color="warning" dismissible>
                   {alertContent("warning")}
-                </MDAlert>
-                <MDAlert color="info" dismissible>
+                </Alert>
+                <Alert color="info" dismissible>
                   {alertContent("info")}
-                </MDAlert>
-                <MDAlert color="light" dismissible>
+                </Alert>
+                <Alert color="light" dismissible>
                   {alertContent("light")}
-                </MDAlert>
-                <MDAlert color="dark" dismissible>
+                </Alert>
+                <Alert color="dark" dismissible>
                   {alertContent("dark")}
-                </MDAlert>
-              </MDBox>
+                </Alert>
+              </Box>
             </Card>
           </Grid>
 
           <Grid item xs={12} lg={8}>
             <Card>
-              <MDBox p={2} lineHeight={0}>
-                <MDTypography variant="h5">Notifications</MDTypography>
-                <MDTypography
+              <Box p={2} lineHeight={0}>
+                <Typography variant="h5">Notifications</Typography>
+                <Typography
                   variant="button"
                   color="text"
                   fontWeight="regular"
                 >
                   Notifications on this page use Toasts from Bootstrap. Read
                   more details here.
-                </MDTypography>
-              </MDBox>
-              <MDBox p={2}>
+                </Typography>
+              </Box>
+              <Box p={2}>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={6} lg={3}>
-                    <MDButton
+                    <Button
                       variant="gradient"
                       color="success"
                       onClick={openSuccessSB}
                       fullWidth
                     >
                       success notification
-                    </MDButton>
+                    </Button>
                     {renderSuccessSB}
                   </Grid>
                   <Grid item xs={12} sm={6} lg={3}>
-                    <MDButton
+                    <Button
                       variant="gradient"
                       color="info"
                       onClick={openInfoSB}
                       fullWidth
                     >
                       info notification
-                    </MDButton>
+                    </Button>
                     {renderInfoSB}
                   </Grid>
                   <Grid item xs={12} sm={6} lg={3}>
-                    <MDButton
+                    <Button
                       variant="gradient"
                       color="warning"
                       onClick={openWarningSB}
                       fullWidth
                     >
                       warning notification
-                    </MDButton>
+                    </Button>
                     {renderWarningSB}
                   </Grid>
                   <Grid item xs={12} sm={6} lg={3}>
-                    <MDButton
+                    <Button
                       variant="gradient"
                       color="error"
                       onClick={openErrorSB}
                       fullWidth
                     >
                       error notification
-                    </MDButton>
+                    </Button>
                     {renderErrorSB}
                   </Grid>
                 </Grid>
-              </MDBox>
+              </Box>
             </Card>
           </Grid>
         </Grid>
-      </MDBox>
-    </DashboardLayout>
+      </Box>
+    </>
   );
 }
 

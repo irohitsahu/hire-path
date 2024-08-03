@@ -1,6 +1,3 @@
-/*
-  This file is used for controlling the global states of the components
-*/
 import { createContext, useContext, useReducer, useMemo } from "react";
 import PropTypes from "prop-types";
 
@@ -50,7 +47,6 @@ function reducer(state, action) {
   }
 }
 
-// Material Dashboard 2 React context provider
 function MaterialUIControllerProvider({ children }) {
   const initialState = {
     userLogged: false,
@@ -74,7 +70,6 @@ function MaterialUIControllerProvider({ children }) {
   return <MaterialUI.Provider value={value}>{children}</MaterialUI.Provider>;
 }
 
-// Material Dashboard 2 React custom hook for using context
 function useMaterialUIController() {
   const context = useContext(MaterialUI);
 
@@ -87,7 +82,6 @@ function useMaterialUIController() {
   return context;
 }
 
-// Context module functions
 const setIsUserLogged = (dispatch, value) => {
   dispatch({ type: "IS_USER_LOGGED", value });
 };
@@ -130,7 +124,6 @@ export {
   setDarkMode,
 };
 
-// Typechecking props for the MaterialUIControllerProvider
 MaterialUIControllerProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

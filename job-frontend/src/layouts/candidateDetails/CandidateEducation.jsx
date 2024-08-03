@@ -10,7 +10,7 @@ import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 
 //Educational Details
 
-function CandidateEdu() {
+function CandidateEducation() {
   const [candidate, setCandidate] = useState({
     // Educational Details
 
@@ -169,4 +169,4 @@ function CandidateEdu() {
   );
 }
 
-export default CandidateEdu;
+export default CandidateEducation;

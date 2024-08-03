@@ -11,12 +11,10 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
-import PageLayout from "../../page/LayoutType/pageLayout";
 import { TopInfoCard } from "./signUp-styles";
 
 function SignUp() {
   return (
-    <PageLayout>
       <Card>
         <TopInfoCard mx={2} mt={-3} p={3} mb={1} textAlign="center">
           <Typography variant="h4" fontWeight="medium" color="white" mt={1}>
@@ -119,7 +117,6 @@ function SignUp() {
           </Box>
         </Box>
       </Card>
-    </PageLayout>
   );
 }
 

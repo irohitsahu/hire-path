@@ -5,11 +5,9 @@ import SearchBar from "../../../components/searchBar/searchBar";
 import { Facebook, GitHub, Instagram, Twitter } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { HomeWrapper } from "./landingInfo-styles";
-import PageLayout from "../LayoutType/pageLayout";
 
 function LandingPageInfo() {
   return (
-    <PageLayout>
       <HomeWrapper>
         <Typography variant="h2" color="white" textAlign={"center"}>
           Search Your Dream Job, Right Here, Right Now
@@ -58,7 +56,6 @@ function LandingPageInfo() {
           </Typography>
         </Box>
       </HomeWrapper>
-    </PageLayout>
   );
 }
 

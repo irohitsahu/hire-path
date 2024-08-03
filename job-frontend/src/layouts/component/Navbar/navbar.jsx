@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 // @mui material components
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -11,10 +9,11 @@ import KeyIcon from "@mui/icons-material/Key";
 
 // context
 import { useMaterialUIController } from "context";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [controller] = useMaterialUIController();
-  const { userLogged } = controller;
+  const { userLogged, userType } = controller;
 
   return (
     <Box
@@ -28,14 +27,7 @@ function Navbar() {
       alignItems={"center"}
       sx={{ color: "primary.main" }}
     >
-      <Box
-        component={Link}
-        to="/home"
-        color="inherit"
-        sx={{ cursor: "pointer" }}
-      >
-        Job Portal
-      </Box>
+      <Link to="/home">Job Portal</Link>
 
       <Box
         display={{ xs: "none", md: "flex" }}
@@ -45,59 +37,27 @@ function Navbar() {
       >
         {userLogged ? (
           <>
-            <Box
-              color="inherit"
-              component={Link}
-              to="/dashboard"
-              display={"flex"}
-              alignItems={"center"}
-              justifyContent={"start"}
-              sx={{ cursor: "pointer", userSelect: "none" }}
-            >
+            <Link to={`${userType}/dashboard`}>
               <DonutIcon sx={{ mx: 1 }} fontSize="medium" />
               Dashboard
-            </Box>
+            </Link>
 
-            <Box
-              color="inherit"
-              component={Link}
-              to="/profile"
-              display={"flex"}
-              alignItems={"center"}
-              justifyContent={"start"}
-              sx={{ cursor: "pointer", userSelect: "none" }}
-            >
+            <Link to={`${userType}/profile`}>
               <PersonIcon sx={{ mx: 1 }} fontSize="medium" />
               Profile
-            </Box>
+            </Link>
           </>
         ) : (
           <>
-            <Box
-              color="inherit"
-              component={Link}
-              to="/authentication/sign-up"
-              display={"flex"}
-              alignItems={"center"}
-              justifyContent={"start"}
-              sx={{ cursor: "pointer", userSelect: "none" }}
-            >
+            <Link to="/authentication/sign-up">
               <AccountCircleIcon sx={{ mx: 1 }} fontSize="medium" />
               Sign Up
-            </Box>
+            </Link>
 
-            <Box
-              color="inherit"
-              component={Link}
-              to="/authentication/sign-in"
-              display={"flex"}
-              alignItems={"center"}
-              justifyContent={"start"}
-              sx={{ cursor: "pointer", userSelect: "none" }}
-            >
+            <Link to="/authentication/sign-in">
               <KeyIcon sx={{ mx: 1 }} fontSize="medium" />
               Sign In
-            </Box>
+            </Link>
           </>
         )}
       </Box>

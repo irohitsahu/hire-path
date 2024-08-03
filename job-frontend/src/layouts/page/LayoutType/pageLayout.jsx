@@ -1,11 +1,9 @@
-import PropTypes from "prop-types";
-
 import { useEffect } from "react";
 import { setLayout, useMaterialUIController } from "context";
-import { useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Container from "@mui/material/Container";
 
-function PageLayout({ children }) {
+function PageLayout() {
   const [, dispatch] = useMaterialUIController();
   const pathname = useLocation();
 
@@ -15,13 +13,10 @@ function PageLayout({ children }) {
 
   return (
     <Container maxWidth={pathname.pathname === "/home" ? "lg" : "xs"}>
-      {children}
+      <Outlet/>
     </Container>
   );
 }
 
 export default PageLayout;
 
-PageLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-};

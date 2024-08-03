@@ -2,24 +2,21 @@
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 
-// Material Dashboard 2 React components
-import MDBox from "../../../components/MDBox";
-import MDTypography from "../../../components/MDTypography";
 
 // Material Dashboard 2 React example components
-import DashboardLayout from "layouts/page/LayoutType/dashboardLayout";
 import DashboardNavbar from "../dashboard/dashboardNavbar";
 import DataTable from "./tableData";
+import { Box, Typography } from "@mui/material";
 
 function Tables() {
   return (
-    <DashboardLayout>
+    <>
       <DashboardNavbar />
-      <MDBox pt={6} pb={3}>
+      <Box pt={6} pb={3}>
         <Grid container spacing={6}>
           <Grid item xs={12}>
             <Card>
-              <MDBox
+              <Box
                 mx={2}
                 mt={-3}
                 py={3}
@@ -29,11 +26,11 @@ function Tables() {
                 borderRadius="lg"
                 coloredShadow="info"
               >
-                <MDTypography variant="h6" color="white">
+                <Typography variant="h6" color="white">
                   Applied Job List
-                </MDTypography>
-              </MDBox>
-              <MDBox pt={3}>
+                </Typography>
+              </Box>
+              <Box pt={3}>
                 <DataTable
                   table={{
                     columns: [
@@ -74,7 +71,7 @@ function Tables() {
                     rows: [
                       {
                         companyName: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -82,10 +79,10 @@ function Tables() {
                             fontWeight="medium"
                           >
                             DEF COMPANY
-                          </MDTypography>
+                          </Typography>
                         ),
                         jobDescription: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -93,10 +90,10 @@ function Tables() {
                             fontWeight="medium"
                           >
                             CDE SSKIL
-                          </MDTypography>
+                          </Typography>
                         ),
                         typeOfJob: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -104,10 +101,10 @@ function Tables() {
                             fontWeight="medium"
                           >
                             23/04/18
-                          </MDTypography>
+                          </Typography>
                         ),
                         modeOfJob: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -115,10 +112,10 @@ function Tables() {
                             fontWeight="medium"
                           >
                             Edit
-                          </MDTypography>
+                          </Typography>
                         ),
                         responsibility: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -126,10 +123,10 @@ function Tables() {
                             fontWeight="medium"
                           >
                             23/04/18
-                          </MDTypography>
+                          </Typography>
                         ),
                         requirment: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -137,12 +134,12 @@ function Tables() {
                             fontWeight="medium"
                           >
                             23/04/18
-                          </MDTypography>
+                          </Typography>
                         ),
                       },
                       {
                         companyName: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -150,10 +147,10 @@ function Tables() {
                             fontWeight="medium"
                           >
                             ABC COMPANY
-                          </MDTypography>
+                          </Typography>
                         ),
                         jobName: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -161,10 +158,10 @@ function Tables() {
                             fontWeight="medium"
                           >
                             CDE SSKIL
-                          </MDTypography>
+                          </Typography>
                         ),
                         status: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -172,10 +169,10 @@ function Tables() {
                             fontWeight="medium"
                           >
                             23/04/18
-                          </MDTypography>
+                          </Typography>
                         ),
                         appliedDate: (
-                          <MDTypography
+                          <Typography
                             component="a"
                             href="#"
                             variant="caption"
@@ -183,7 +180,7 @@ function Tables() {
                             fontWeight="medium"
                           >
                             Edit
-                          </MDTypography>
+                          </Typography>
                         ),
                       },
                     ],
@@ -193,12 +190,12 @@ function Tables() {
                   showTotalEntries={false}
                   noEndBorder
                 />
-              </MDBox>
+              </Box>
             </Card>
           </Grid>
         </Grid>
-      </MDBox>
-    </DashboardLayout>
+      </Box>
+    </>
   );
 }
 

@@ -1,29 +1,33 @@
-import { useEffect } from "react";
-
-import { useLocation, NavLink } from "react-router-dom";
-
 import PropTypes from "prop-types";
-
-import { List, Divider, Link, Box, Typography, ListItem } from "@mui/material";
-
+import { useEffect } from "react";
+import { useLocation, NavLink } from "react-router-dom";
+import {
+  List,
+  Divider,
+  Box,
+  Typography,
+  ListItem,
+  ListItemAvatar,
+  Avatar,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 import {
-  CollapseIcon,
-  CollapseIconBox,
-  CollapseItem,
   CollapseText,
   SideNavbarDrawer,
   SideNavbarLogoLabel,
 } from "./sidenav-styles";
 
 import { useMaterialUIController, setMiniSidenav } from "context";
+import { CandidateSidebar, CompanySidebar } from "./sidenav-data";
 
-function Sidenav({ brand, brandName, routes, ...rest }) {
+function Sidenav() {
   const [controller, dispatch] = useMaterialUIController();
-  const { miniSidenav, darkMode } = controller;
+  const { miniSidenav, darkMode, userType } = controller;
   const location = useLocation();
   const collapseName = location.pathname.replace("/", "");
+
+  console.log(collapseName);
 
   let textColor = "white";
 
@@ -39,78 +43,31 @@ function Sidenav({ brand, brandName, routes, ...rest }) {
     return () => window.removeEventListener("resize", handleMiniSidenav);
   }, [dispatch, location]);
 
-  const renderRoutes = routes.map(
-    ({ type, name, icon, title, key, href, route }) => {
-      let returnValue;
+  const renderRoutes = () => {
+    const routes = userType === "candidate" ? CandidateSidebar : CompanySidebar;
 
-      if (type === "collapse") {
-        returnValue = href ? (
-          <Link
-            href={href}
-            key={key}
-            target="_blank"
-            rel="noreferrer"
-            sx={{ textDecoration: "none" }}
-          >
-            <ListItem component="li">
-              <CollapseItem ownerState={key === collapseName}>
-                <CollapseIconBox
-                  ownerState={{ darkMode, active: key === collapseName }}
-                >
-                  {typeof icon === "string" ? (
-                    <CollapseIcon
-                      ownerState={{ darkMode, active: key === collapseName }}
-                    >
-                      {icon}
-                    </CollapseIcon>
-                  ) : (
-                    icon
-                  )}
-                </CollapseIconBox>
-
-                <CollapseText
-                  primary={name}
-                  ownerState={{
-                    miniSidenav,
-                    active: key === collapseName,
-                  }}
-                />
-              </CollapseItem>
-            </ListItem>
-          </Link>
-        ) : (
-          <NavLink key={key} to={route}>
-            <ListItem component="li">
-              <CollapseItem ownerState={key === collapseName}>
-                <CollapseIconBox
-                  ownerState={{ darkMode, active: key === collapseName }}
-                >
-                  {typeof icon === "string" ? (
-                    <CollapseIcon
-                      ownerState={{ darkMode, active: key === collapseName }}
-                    >
-                      {icon}
-                    </CollapseIcon>
-                  ) : (
-                    icon
-                  )}
-                </CollapseIconBox>
-
-                <CollapseText
-                  primary={name}
-                  ownerState={{
-                    miniSidenav,
-                    active: key === collapseName,
-                  }}
-                />
-              </CollapseItem>
+    return routes.map((route, index) => {
+      if (route.type === "collapse") {
+        return (
+          <NavLink key={index} to={route.to}>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar>{route.icon}</Avatar>
+              </ListItemAvatar>
+              <CollapseText
+                ownerState={{
+                  active: route.to === collapseName,
+                }}
+              >
+                {route.title}
+              </CollapseText>
             </ListItem>
           </NavLink>
         );
-      } else if (type === "title") {
-        returnValue = (
+      } else if (route.type === "title") {
+        return (
           <Typography
-            key={key}
+            key={route.key}
             color={textColor}
             display="block"
             variant="caption"
@@ -121,20 +78,19 @@ function Sidenav({ brand, brandName, routes, ...rest }) {
             mb={1}
             ml={1}
           >
-            {title}
+            {route.title}
           </Typography>
         );
-      } else if (type === "divider") {
-        returnValue = <Divider key={key} />;
+      } else if (route.type === "divider") {
+        return <Divider key={route.key} />;
+      } else {
+        return null;
       }
-
-      return returnValue;
-    }
-  );
+    });
+  };
 
   return (
     <SideNavbarDrawer
-      {...rest}
       variant="permanent"
       ownerState={{ miniSidenav, darkMode }}
     >
@@ -157,47 +113,23 @@ function Sidenav({ brand, brandName, routes, ...rest }) {
           alignItems="center"
           sx={{ textDecoration: "none", color: "primary.main" }}
         >
-          {brand && (
-            <Box component="img" src={brand} alt="Brand" width="2rem" />
-          )}
-          <SideNavbarLogoLabel {...rest} ownerState={{ darkMode }}>
+          {/* <Box component="img" src="" alt="hirepath" width="2rem" /> */}
+          <SideNavbarLogoLabel ownerState={{ darkMode }}>
             <Typography
               component="h1"
               variant="button"
               fontWeight="medium"
               color={textColor}
             >
-              {brandName}
+              HirePath
             </Typography>
           </SideNavbarLogoLabel>
         </Box>
       </Box>
       <Divider variant="middle" sx={{ backgroundColor: "secondary.main" }} />
-      <List>{renderRoutes}</List>
+      <List>{renderRoutes()}</List>
     </SideNavbarDrawer>
   );
 }
-
-// Setting default values for the props of Sidenav
-Sidenav.defaultProps = {
-  color: "info",
-  brand: "",
-};
-
-// Typechecking props for the Sidenav
-Sidenav.propTypes = {
-  color: PropTypes.oneOf([
-    "primary",
-    "secondary",
-    "info",
-    "success",
-    "warning",
-    "error",
-    "dark",
-  ]),
-  brand: PropTypes.string,
-  brandName: PropTypes.string.isRequired,
-  routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default Sidenav;
